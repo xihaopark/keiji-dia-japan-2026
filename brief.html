@@ -5,90 +5,78 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <title>Keiji AI — Briefing, DIA Japan 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=Inter:wght@400;500;600&display=swap">
 <style>
-  :root{--ink:#111111;--ink2:#444444;--mute:#7a7a7a;--rule:#111111;--hair:#d6d6d6;--navy:#1e3a8a;--paper:#ffffff;--grey:#e8e8e8}
+  :root{--ink:#17191c;--ink2:#4a4f57;--mute:#8a9099;--rule:#17191c;--hair:#d9dbe0;--navy:#1f3b6e;--navy2:#2c4f8f;--paper:#ffffff;--paper2:#f7f6f2;--grey:#ecedef;--stamp:#b4453a}
   *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-  html,body{margin:0;height:100%;background:#f0f0f0;color:var(--ink);-webkit-user-select:none;user-select:none;
-    font-family:"Helvetica Neue",Helvetica,Arial,"Hiragino Sans","Hiragino Kaku Gothic ProN",sans-serif;font-size:13.5px;line-height:1.5}
-  .serif{font-family:Georgia,"Times New Roman","Hiragino Mincho ProN","Yu Mincho",serif}
+  html,body{margin:0;height:100%;background:#ebebe8;color:var(--ink);-webkit-user-select:none;user-select:none;
+    font-family:Inter,"Noto Sans JP","Hiragino Sans","Hiragino Kaku Gothic ProN","Helvetica Neue",Helvetica,Arial,sans-serif;font-size:13.5px;line-height:1.55;font-feature-settings:"palt"}
+  body.ja{font-family:"Noto Sans JP","Hiragino Sans","Hiragino Kaku Gothic ProN",Inter,"Helvetica Neue",sans-serif}
+  .serif,h1,h2,.pg,.n{font-family:"Source Serif 4","Noto Serif JP","Hiragino Mincho ProN","Yu Mincho",Georgia,serif}
+  body.ja h1,body.ja h2{font-family:"Noto Serif JP","Hiragino Mincho ProN","Yu Mincho","Source Serif 4",Georgia,serif}
   #book{height:100vh;overflow-y:auto;scroll-snap-type:y mandatory;scrollbar-width:none}
   #book::-webkit-scrollbar{display:none}
   body.en .ja{display:none !important} body.ja .en{display:none !important}
-  #lang{position:fixed;top:12px;right:16px;z-index:20;display:flex;border:1px solid var(--hair);background:#fff;font-size:12px}
-  #lang button{appearance:none;border:0;background:transparent;padding:7px 14px;color:var(--mute);font-weight:500;letter-spacing:.04em}
+  #lang{position:fixed;top:12px;right:16px;z-index:20;display:flex;border:1px solid var(--hair);background:#fff;font-size:12px;border-radius:2px}
+  #lang button{appearance:none;border:0;background:transparent;padding:7px 14px;color:var(--mute);font-weight:500;letter-spacing:.04em;font-family:inherit}
   #lang button.on{background:var(--ink);color:#fff}
-  .page{height:100vh;scroll-snap-align:start;scroll-snap-stop:always;background:var(--paper);padding:34px 60px 26px;display:grid;grid-template-rows:auto 1fr auto;gap:20px;position:relative}
+  .page{height:100vh;scroll-snap-align:start;scroll-snap-stop:always;background:var(--paper);padding:30px 60px 24px;display:grid;grid-template-rows:auto 1fr auto;gap:18px;position:relative}
   .page+.page{border-top:1px solid var(--hair)}
-  .mast{display:flex;justify-content:space-between;align-items:baseline;padding-right:170px;border-bottom:1px solid var(--rule);padding-bottom:8px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
-  .mast b{color:var(--ink);font-weight:700;letter-spacing:.14em}
-  h1{margin:0;font-family:Georgia,"Times New Roman","Hiragino Mincho ProN","Yu Mincho",serif;font-weight:400;font-size:34px;line-height:1.25;letter-spacing:-.005em;max-width:26em}
-  h1 .sub{display:block;font-family:"Helvetica Neue",Helvetica,Arial,"Hiragino Sans",sans-serif;font-size:14.5px;color:var(--ink2);margin-top:12px;line-height:1.5;max-width:60em}
-  h2{margin:0 0 10px;font-family:Georgia,"Times New Roman","Hiragino Mincho ProN",serif;font-weight:400;font-size:19px;line-height:1.3;padding-top:8px;border-top:1px solid var(--rule)}
-  h2 .n{color:var(--navy);margin-right:10px}
-  h3{margin:0 0 6px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);font-weight:700}
+  .mast{display:flex;justify-content:space-between;align-items:baseline;padding-right:170px;border-bottom:1px solid var(--rule);padding-bottom:8px;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+  .mast b{color:var(--ink);font-weight:600;letter-spacing:.16em}
+  h1{margin:0;font-weight:500;font-size:34px;line-height:1.28;letter-spacing:-.005em;max-width:26em}
+  h1 .sub{display:block;font-family:inherit;font-weight:400;font-size:14px;color:var(--ink2);margin-top:12px;line-height:1.6;max-width:62em;font-family:Inter,"Noto Sans JP",sans-serif}
+  h2{margin:0 0 10px;font-weight:500;font-size:19px;line-height:1.3;padding-top:9px;border-top:1px solid var(--rule)}
+  h2 .n{color:var(--navy);margin-right:10px;font-weight:400}
+  h3{margin:0 0 6px;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);font-weight:600}
   p{margin:0 0 6px}
   ul{margin:0;padding:0;list-style:none}
-  li{position:relative;padding-left:14px;margin-bottom:5px;line-height:1.45}
-  li::before{content:"";position:absolute;left:0;top:9px;width:5px;height:1px;background:var(--ink)}
+  li{position:relative;padding-left:14px;margin-bottom:5px;line-height:1.5}
+  li::before{content:"";position:absolute;left:0;top:10px;width:5px;height:1px;background:var(--ink)}
   .grid{display:grid;gap:30px;min-height:0;align-content:start}
-  .g-2{grid-template-columns:1fr 1fr}
-  .g-3{grid-template-columns:1fr 1fr 1fr}
-  .g-7-5{grid-template-columns:7fr 5fr}
-  .g-5-7{grid-template-columns:5fr 7fr}
-  /* pull stats */
-  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;border-top:1px solid var(--rule);border-bottom:1px solid var(--hair);padding:14px 0}
-  .stat .v{font-family:Georgia,"Times New Roman",serif;font-size:36px;line-height:1;color:var(--navy)}
-  .stat .l{font-size:12px;color:var(--ink2);margin-top:6px;line-height:1.4}
-  .logos{display:grid;grid-template-columns:1fr 1fr;gap:40px;border-top:1px solid var(--rule);border-bottom:1px solid var(--hair);padding:12px 0}
-  .logos .row{display:flex;align-items:center;gap:22px;flex-wrap:nowrap;margin-top:6px}
-  .logos img{display:block;max-width:100%}
-  .logos .word{font-family:Georgia,serif;font-size:17px;letter-spacing:.02em;color:#1b5e3f;white-space:nowrap}
+  .g-2{grid-template-columns:1fr 1fr}.g-3{grid-template-columns:1fr 1fr 1fr}.g-7-5{grid-template-columns:7fr 5fr}.g-5-7{grid-template-columns:5fr 7fr}
+  /* logos band */
+  .logos{display:grid;grid-template-columns:1fr 1fr;gap:40px;background:var(--paper2);border-top:1px solid var(--rule);border-bottom:1px solid var(--hair);padding:14px 20px;margin:0 -20px}
+  .logos .row{display:flex;align-items:center;gap:26px;flex-wrap:nowrap;margin-top:8px}
+  .logos img{display:block;max-width:100%;filter:grayscale(1) contrast(1.05);opacity:.86}
+  .logos .word{font-family:"Source Serif 4",Georgia,serif;font-size:17px;letter-spacing:.01em;color:var(--ink2);white-space:nowrap}
   .strip{width:100%;height:auto;display:block;margin-top:14px}
-  /* table
+  /* table */
   table{border-collapse:collapse;width:100%;font-size:12.5px}
-  td{padding:7px 10px 7px 0;border-bottom:1px solid var(--hair);vertical-align:top}
-  td.k{width:30%;min-width:96px;font-weight:700;color:var(--ink);white-space:nowrap;padding-right:12px}
-  .names{color:var(--ink);font-weight:700}
+  td{padding:7px 10px 7px 0;border-bottom:1px solid var(--hair);vertical-align:top;line-height:1.5}
+  td.k{width:30%;min-width:96px;font-weight:600;color:var(--ink);white-space:nowrap;padding-right:12px}
   /* chain */
   .chain{display:flex;align-items:stretch;margin:6px 0 14px}
-  .chain .st{flex:1;border:1px solid var(--ink);padding:9px 8px;text-align:center;font-size:11.5px;line-height:1.3;position:relative;background:#fff}
+  .chain .st{flex:1;border:1px solid var(--hair);background:var(--paper2);padding:10px 8px;text-align:center;font-size:11.5px;line-height:1.3;position:relative;color:var(--ink2)}
   .chain .st+.st{margin-left:16px}
-  .chain .st+.st::before{content:"";position:absolute;left:-16px;top:50%;width:16px;border-top:1px solid var(--ink)}
-  .chain .st+.st::after{content:"";position:absolute;left:-5px;top:calc(50% - 3px);border:3px solid transparent;border-left:5px solid var(--ink)}
-  .chain .st b{display:block;font-size:12.5px}
-  .chain .st.us{background:var(--navy);border-color:var(--navy);color:#fff;flex:1.7}
+  .chain .st+.st::before{content:"";position:absolute;left:-16px;top:50%;width:16px;border-top:1px solid var(--mute)}
+  .chain .st+.st::after{content:"";position:absolute;left:-5px;top:calc(50% - 3px);border:3px solid transparent;border-left:5px solid var(--mute)}
+  .chain .st b{display:block;font-size:12.5px;color:var(--ink);font-weight:600}
+  .chain .st.us{background:var(--navy);border-color:var(--navy);color:#c9d6ee;flex:1.7}
   .chain .st.us b{color:#fff}
   .io{display:grid;grid-template-columns:1fr 1fr;gap:24px}
   .io > div{border-top:1px solid var(--rule);padding-top:8px}
   .cores{display:grid;grid-template-columns:repeat(6,1fr);gap:0;border-top:1px solid var(--rule);border-bottom:1px solid var(--hair);margin-top:12px}
-  .cores div{padding:8px 10px 8px 0;font-size:11.5px;line-height:1.3;border-right:1px solid var(--hair);margin-right:10px}
+  .cores div{padding:8px 10px 8px 0;font-size:11.5px;line-height:1.3;border-right:1px solid var(--hair);margin-right:10px;color:var(--ink2)}
   .cores div:last-child{border-right:0}
-  .cores div b{display:block;font-family:Georgia,serif;color:var(--navy);font-size:13px;margin-bottom:2px}
+  .cores div b{display:block;font-family:"Source Serif 4",Georgia,serif;color:var(--navy);font-size:13px;margin-bottom:2px;font-weight:500}
   /* exhibit */
   .exhibit{border-top:1px solid var(--rule);padding-top:8px}
-  .exhibit .cap{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);font-weight:700}
-  .exhibit .ttl{font-family:Georgia,serif;font-size:15px;margin:2px 0 8px}
-  .bars{display:grid;grid-template-columns:150px 1fr 60px;row-gap:7px;column-gap:10px;align-items:center;font-size:12px}
-  .bars .lab{color:var(--ink2)}
-  .bars .track{height:14px;background:transparent}
-  .bars .fill{height:100%;background:#bdbdbd}
-  .bars .k .fill{background:var(--navy)}
-  .bars .v{text-align:right;font-family:Georgia,serif;font-size:12.5px}
-  .bars .k{color:var(--navy)}
+  .exhibit .cap{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);font-weight:600}
+  .exhibit .ttl{font-family:"Source Serif 4","Noto Serif JP",Georgia,serif;font-size:15px;margin:2px 0 8px}
   .manga{width:100%;height:auto;max-height:262px;display:block;margin:0 auto}
   .src{font-size:10.5px;color:var(--mute);margin-top:6px;line-height:1.4}
-  .legend{font-size:11px;color:var(--ink2);margin-top:8px}
-  .legend i{display:inline-block;width:12px;height:8px;margin-right:6px;vertical-align:middle}
   /* three issues */
   .issue{border-top:1px solid var(--rule);padding-top:8px}
-  .issue .lead{font-family:Georgia,serif;font-size:15px;line-height:1.35;margin:4px 0 8px}
-  .issue .lead .n{color:var(--navy)}
+  .issue .lead{font-family:"Source Serif 4","Noto Serif JP",Georgia,serif;font-size:15px;line-height:1.35;margin:4px 0 8px;font-weight:500}
   .issue .prob{color:var(--ink2);font-style:italic;margin-bottom:8px}
+  body.ja .issue .prob{font-style:normal;color:var(--mute)}
   .issue li{font-size:12.5px}
-  .box{border:1px solid var(--ink);padding:8px 12px;font-size:12px}
+  .box{border:1px solid var(--ink);padding:8px 12px;font-size:12px;background:var(--paper2)}
   .box h3{color:var(--ink)}
   .foot{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--rule);padding-top:8px;font-size:10.5px;color:var(--mute)}
-  .foot .pg{font-family:Georgia,serif;color:var(--ink)}
+  .foot .pg{color:var(--ink)}
 </style>
 </head>
 <body class="ja">
@@ -120,33 +108,32 @@
           <tr><td class="k"><span class="ja">専門領域</span><span class="en">Disciplines</span></td><td><span class="ja">機械学習と LLM エージェント、臨床薬理とファーマコメトリクス、生物統計、ソフトウェア工学とセキュリティ。</span><span class="en">Machine learning and LLM agents; clinical pharmacology and pharmacometrics; biostatistics; software engineering and security.</span></td></tr>
           <tr><td class="k"><span class="ja">拠点</span><span class="en">Locations</span></td><td><span class="ja">米国本社と Keiji AI Japan。日本拠点は日本の製薬企業との共同開発と導入支援を担い、日本語で対応する。</span><span class="en">US headquarters and Keiji AI Japan. The Japan office handles co-development and deployment support for Japanese pharma, in Japanese.</span></td></tr>
         </table>
-        <svg class="strip" viewBox="0 0 470 118" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <svg class="strip" viewBox="0 0 470 122" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <defs>
-            <g id="f2"><circle r="12" fill="#fff" stroke="#111" stroke-width="1.5"/><circle cx="-4" cy="-2" r="1.3" fill="#111"/><circle cx="4" cy="-2" r="1.3" fill="#111"/></g>
-            <g id="b2"><path d="M-13 14 Q0 3 13 14 L13 36 L-13 36 Z" fill="#fff" stroke="#111" stroke-width="1.5"/></g>
+            <g id="qA"><path d="M-13 13 Q-15 -2 0 -3 Q15 -2 13 13 L13 38 L-13 38 Z" fill="#e8ebf0" stroke="#17191c" stroke-width="1.5"/><path d="M-5 13 L0 20 L5 13" fill="#fff" stroke="#17191c" stroke-width="1.1"/><circle r="12" cy="-2" fill="#fff" stroke="#17191c" stroke-width="1.5"/><path d="M-11.5 -4 Q-9.5 -15 0 -14 Q9.5 -15 11.5 -4 Q6 -9 0 -8 Q-6 -9 -11.5 -4 Z" fill="#17191c"/></g>
           </defs>
-          <style>.k2{fill:none;stroke:#111;stroke-width:1.5}.t2{font:600 9px "Helvetica Neue",Helvetica,Arial,"Hiragino Sans",sans-serif;fill:#111}.n2{font:700 10px Georgia,serif;fill:#1e3a8a}.bb{fill:#fff;stroke:#111;stroke-width:1.1}</style>
-          <!-- panel 1: analyst hands ADaM to the agent -->
-          <rect x="0.8" y="0.8" width="230" height="116" class="k2"/><text class="n2" x="7" y="13">1</text>
-          <g transform="translate(40 58)"><use href="#b2"/><use href="#f2"/><path d="M-8 4 Q0 8 8 4" class="k2"/></g>
-          <rect x="56" y="62" width="30" height="22" fill="#fff" stroke="#111" stroke-width="1.3"/><text class="t2" x="59" y="76" style="font-size:7.5px">ADaM</text>
-          <path d="M92 73 h28" class="k2"/><path d="M116 69 l6 4 -6 4" class="k2"/>
-          <rect x="128" y="40" width="68" height="60" rx="4" fill="#1e3a8a"/><text x="140" y="64" style="font:700 11px Georgia,serif;fill:#fff">Keiji AI</text>
-          <text x="134" y="80" style="font:8px Helvetica,Arial,sans-serif;fill:#bfdbfe" class="ja">6 ステップ実行</text><text x="134" y="80" style="font:8px Helvetica,Arial,sans-serif;fill:#bfdbfe" class="en">runs 6 steps</text>
-          <text x="134" y="92" style="font:8px Helvetica,Arial,sans-serif;fill:#bfdbfe" class="ja">計算は R</text><text x="134" y="92" style="font:8px Helvetica,Arial,sans-serif;fill:#bfdbfe" class="en">R computes</text>
-          <rect x="6" y="18" width="92" height="22" rx="5" class="bb"/><path d="M30 40 L34 48 L40 40" fill="#fff" stroke="#111" stroke-width="1.1"/><line x1="31.5" y1="40" x2="38.5" y2="40" stroke="#fff" stroke-width="2"/>
-          <text class="t2 ja" x="11" y="32">ADaM、入れるだけ</text><text class="t2 en" x="11" y="32">Just drop in ADaM</text>
-          <!-- panel 2: agent proposes, analyst stamps -->
-          <rect x="239" y="0.8" width="230" height="116" class="k2"/><text class="n2" x="246" y="13">2</text>
-          <rect x="252" y="30" width="96" height="66" fill="#fff" stroke="#111" stroke-width="1.3"/>
-          <line x1="260" y1="44" x2="330" y2="44" class="k2"/><line x1="260" y1="56" x2="320" y2="56" class="k2"/><line x1="260" y1="68" x2="326" y2="68" class="k2"/>
-          <text class="t2 ja" x="260" y="40" style="font-size:7px">提案：Cycle 1 AUC</text><text class="t2 en" x="260" y="40" style="font-size:7px">Proposal: Cycle 1 AUC</text>
-          <text class="t2 ja" x="260" y="52" style="font-size:7px">根拠：PopPK 出力…</text><text class="t2 en" x="260" y="52" style="font-size:7px">Basis: PopPK output…</text>
-          <text class="t2 ja" x="260" y="64" style="font-size:7px">確信度：高</text><text class="t2 en" x="260" y="64" style="font-size:7px">Confidence: high</text>
-          <circle cx="322" cy="82" r="11" fill="none" stroke="#c0392b" stroke-width="1.6"/><text x="315" y="86" style="font:700 9px 'Hiragino Mincho ProN',serif;fill:#c0392b" class="ja">確定</text><text x="313" y="85" style="font:700 7px Georgia,serif;fill:#c0392b" class="en">OK</text>
-          <g transform="translate(400 60)"><use href="#b2"/><use href="#f2"/><path d="M-8 3 Q0 9 8 3" class="k2"/></g>
-          <rect x="356" y="14" width="106" height="22" rx="5" class="bb"/><path d="M398 36 L402 44 L408 36" fill="#fff" stroke="#111" stroke-width="1.1"/><line x1="399.5" y1="36" x2="406.5" y2="36" stroke="#fff" stroke-width="2"/>
-          <text class="t2 ja" x="361" y="28">提案を見て、人が確定</text><text class="t2 en" x="361" y="28">It proposes, I confirm</text>
+          <style>.k2{fill:none;stroke:#17191c;stroke-width:1.5}.t2{font:500 9px Inter,"Noto Sans JP","Hiragino Sans",sans-serif;fill:#17191c}.n2{font:500 10px "Source Serif 4",Georgia,serif;fill:#1f3b6e}.bb{fill:#fff;stroke:#17191c;stroke-width:1.1}.pan2{fill:#fff;stroke:#17191c;stroke-width:1.3}</style>
+          <!-- 1 · drop in ADaM -->
+          <rect x="1" y="1" width="230" height="120" class="pan2"/><text class="n2" x="7" y="13">1</text>
+          <rect x="6" y="18" width="220" height="80" fill="#f7f6f2"/>
+          <g transform="translate(42 62)"><use href="#qA"/><path d="M-6 -4 q2.5 -3 5 0 M1 -4 q2.5 -3 5 0" class="k2" stroke-width="1.2"/><path d="M-5 5 q5 4 10 0" class="k2" stroke-width="1.2"/></g>
+          <rect x="58" y="66" width="30" height="22" rx="1.5" fill="#fff" stroke="#17191c" stroke-width="1.3"/><text class="t2" x="61" y="80" style="font-size:7.5px">ADaM</text>
+          <path d="M94 77 h26" class="k2"/><path d="M116 73 l6 4 -6 4" class="k2"/>
+          <rect x="128" y="42" width="72" height="56" fill="#1f3b6e"/><text x="140" y="64" style="font:600 11px 'Source Serif 4',Georgia,serif;fill:#fff">Keiji AI</text>
+          <text x="136" y="79" style="font:8px Inter,'Noto Sans JP',sans-serif;fill:#c9d6ee" class="ja">6 ステップ実行</text><text x="136" y="79" style="font:8px Inter,sans-serif;fill:#c9d6ee" class="en">runs 6 steps</text>
+          <text x="136" y="91" style="font:8px Inter,'Noto Sans JP',sans-serif;fill:#c9d6ee" class="ja">計算は R</text><text x="136" y="91" style="font:8px Inter,sans-serif;fill:#c9d6ee" class="en">R computes</text>
+          <rect x="6" y="100" width="100" height="18" rx="3" class="bb"/><text class="t2 ja" x="11" y="112">ADaM、入れるだけ。</text><text class="t2 en" x="11" y="112">Just drop in ADaM.</text>
+          <!-- 2 · it proposes, I confirm -->
+          <rect x="239" y="1" width="230" height="120" class="pan2"/><text class="n2" x="246" y="13">2</text>
+          <rect x="244" y="18" width="220" height="80" fill="#f7f6f2"/>
+          <rect x="254" y="26" width="104" height="66" fill="#fff" stroke="#17191c" stroke-width="1.3"/>
+          <rect x="254" y="26" width="104" height="10" fill="#e8ebf0"/><text class="t2 ja" x="258" y="34" style="font-size:6.5px;fill:#4a4f57">エージェントの提案</text><text class="t2 en" x="258" y="34" style="font-size:6.5px;fill:#4a4f57">agent proposal</text>
+          <text class="t2 ja" x="260" y="48" style="font-size:7px">曝露指標：Cycle 1 AUC</text><text class="t2 en" x="260" y="48" style="font-size:7px">Metric: Cycle 1 AUC</text>
+          <text class="t2 ja" x="260" y="60" style="font-size:7px">根拠：PopPK 出力を再利用</text><text class="t2 en" x="260" y="60" style="font-size:7px">Basis: reuse PopPK output</text>
+          <text class="t2 ja" x="260" y="72" style="font-size:7px">確信度：高</text><text class="t2 en" x="260" y="72" style="font-size:7px">Confidence: high</text>
+          <g transform="translate(336 80)"><circle r="10.5" fill="none" stroke="#b4453a" stroke-width="1.4"/><circle r="8.5" fill="none" stroke="#b4453a" stroke-width=".6"/><text x="-8" y="3.5" style="font:600 8px 'Noto Serif JP','Hiragino Mincho ProN',serif;fill:#b4453a" class="ja">確定</text><text x="-6.5" y="3" style="font:600 6.5px 'Source Serif 4',Georgia,serif;fill:#b4453a" class="en">OK</text></g>
+          <g transform="translate(404 62)"><use href="#qA"/><path d="M-6 -4 q2.5 -3 5 0 M1 -4 q2.5 -3 5 0" class="k2" stroke-width="1.2"/><path d="M-5 5 q5 4 10 0" class="k2" stroke-width="1.2"/></g>
+          <rect x="366" y="100" width="98" height="18" rx="3" class="bb"/><text class="t2 ja" x="371" y="112">提案を見て、確定。</text><text class="t2 en" x="371" y="112">It proposes, I confirm.</text>
         </svg>
       </div>
       <div>
@@ -225,73 +212,85 @@
           <div class="ttl"><span class="ja">三つの壁と、Keiji AI の答え</span><span class="en">Three walls, and the Keiji AI answer</span></div>
           <svg class="manga" viewBox="0 0 440 320" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <defs>
-              <g id="face"><circle r="13" fill="#fff" stroke="#111" stroke-width="1.6"/><circle cx="-4.5" cy="-2" r="1.4" fill="#111"/><circle cx="4.5" cy="-2" r="1.4" fill="#111"/></g>
-              <g id="body"><path d="M-14 16 Q0 4 14 16 L14 40 L-14 40 Z" fill="#fff" stroke="#111" stroke-width="1.6"/></g>
+              <!-- characters: hair + face + shirt, one line weight -->
+              <g id="pA"><path d="M-14 14 Q-16 -2 0 -3 Q16 -2 14 14 L14 40 L-14 40 Z" fill="#e8ebf0" stroke="#17191c" stroke-width="1.5"/><path d="M-6 14 L0 22 L6 14" fill="#fff" stroke="#17191c" stroke-width="1.2"/><circle r="12.5" cy="-2" fill="#fff" stroke="#17191c" stroke-width="1.5"/><path d="M-12 -4 Q-10 -16 0 -15 Q10 -16 12 -4 Q6 -9 0 -8 Q-6 -9 -12 -4 Z" fill="#17191c"/></g>
+              <g id="pB"><path d="M-14 14 Q-16 -2 0 -3 Q16 -2 14 14 L14 40 L-14 40 Z" fill="#e8ebf0" stroke="#17191c" stroke-width="1.5"/><path d="M-6 14 L0 22 L6 14" fill="#fff" stroke="#17191c" stroke-width="1.2"/><circle r="12.5" cy="-2" fill="#fff" stroke="#17191c" stroke-width="1.5"/><path d="M-12 -5 Q-8 -17 4 -14 Q12 -13 12 -3 Q4 -10 -4 -8 Q-10 -7 -12 -5 Z" fill="#17191c"/></g>
+              <g id="pS"><path d="M-14 14 Q-16 -2 0 -3 Q16 -2 14 14 L14 40 L-14 40 Z" fill="#d7dde8" stroke="#17191c" stroke-width="1.5"/><path d="M-6 14 L0 22 L6 14" fill="#fff" stroke="#17191c" stroke-width="1.2"/><circle r="12.5" cy="-2" fill="#fff" stroke="#17191c" stroke-width="1.5"/><path d="M-12 -4 Q-9 -15 0 -15 Q9 -15 12 -4 L12 -2 Q6 -10 0 -9 Q-6 -10 -12 -2 Z" fill="#8a9099"/><circle cx="-5" cy="-3" r="4" fill="none" stroke="#17191c" stroke-width="1.1"/><circle cx="5" cy="-3" r="4" fill="none" stroke="#17191c" stroke-width="1.1"/><path d="M-1 -3 h2" stroke="#17191c" stroke-width="1.1"/></g>
+              <g id="eyesHappy"><path d="M-7 -4 q2.5 -3 5 0 M2 -4 q2.5 -3 5 0" fill="none" stroke="#17191c" stroke-width="1.3"/></g>
+              <g id="eyesDot"><circle cx="-4.5" cy="-4" r="1.4" fill="#17191c"/><circle cx="4.5" cy="-4" r="1.4" fill="#17191c"/></g>
             </defs>
             <style>
-              .k{fill:none;stroke:#111;stroke-width:1.6}
-              .t{font:600 9.5px "Helvetica Neue",Helvetica,Arial,"Hiragino Sans",sans-serif;fill:#111}
-              .s{font:9px "Helvetica Neue",Helvetica,Arial,"Hiragino Sans",sans-serif;fill:#444}
-              .n{font:700 10px Georgia,serif;fill:#1e3a8a}
-              .bub{fill:#fff;stroke:#111;stroke-width:1.2}
-              .navy{fill:#1e3a8a}
+              .k{fill:none;stroke:#17191c;stroke-width:1.5}
+              .pan{fill:#fff;stroke:#17191c;stroke-width:1.3}
+              .t{font:500 9.5px Inter,"Noto Sans JP","Hiragino Sans",sans-serif;fill:#17191c}
+              .s{font:400 8.5px Inter,"Noto Sans JP","Hiragino Sans",sans-serif;fill:#4a4f57}
+              .n{font:500 10px "Source Serif 4",Georgia,serif;fill:#1f3b6e}
+              .bub{fill:#fff;stroke:#17191c;stroke-width:1.1}
+              .navy{fill:#1f3b6e}
             </style>
 
-            <!-- Panel 1: A data cannot leave -->
-            <rect x="0.8" y="0.8" width="214" height="154" class="k"/>
+            <!-- 1 · data cannot leave -->
+            <rect x="1" y="1" width="214" height="154" class="pan"/>
             <text class="n" x="8" y="14">1</text>
-            <g transform="translate(48 70)"><use href="#body"/><use href="#face"/><path d="M-9 4 Q0 9 9 4" class="k"/></g>
-            <rect x="60" y="86" width="30" height="22" fill="#fff" stroke="#111" stroke-width="1.4"/><text class="t" x="63" y="100" style="font-size:8px">ADaM</text>
-            <path d="M118 30 L118 130" stroke="#111" stroke-width="2.2" stroke-dasharray="4 3"/>
-            <path d="M150 85 q-14 0 -12 -12 q-3 -14 12 -12 q6 -12 18 -4 q14 -2 12 10 q10 6 0 14 q-4 10 -16 6 q-8 8 -14 -2 Z" class="k"/>
-            <text class="t ja" x="140" y="79" style="font-size:8.5px">社外 AI</text><text class="t en" x="135" y="79" style="font-size:8px">external AI</text>
-            <g stroke="#111" stroke-width="2.4"><line x1="128" y1="60" x2="142" y2="74"/><line x1="142" y1="60" x2="128" y2="74"/></g>
-            <rect x="8" y="118" width="128" height="28" rx="6" class="bub"/><path d="M38 118 L44 108 L50 118" fill="#fff" stroke="#111" stroke-width="1.2"/><line x1="39.5" y1="118" x2="48.5" y2="118" stroke="#fff" stroke-width="2"/>
-            <text class="t ja" x="14" y="130">臨床データは</text><text class="t ja" x="14" y="141">外に出せない…</text>
-            <text class="t en" x="14" y="130">Clinical data can't</text><text class="t en" x="14" y="141">leave the building…</text>
+            <rect x="6" y="20" width="204" height="100" fill="#f7f6f2"/>
+            <g transform="translate(48 68)"><use href="#pA"/><use href="#eyesDot"/><path d="M-4 5 q4 -2 8 0" class="k" stroke-width="1.2"/></g>
+            <rect x="60" y="86" width="30" height="22" rx="1.5" fill="#fff" stroke="#17191c" stroke-width="1.3"/><text class="t" x="63" y="100" style="font-size:7.5px">ADaM</text>
+            <!-- wall -->
+            <g fill="#dcdfe5" stroke="#17191c" stroke-width="1">
+              <rect x="112" y="22" width="14" height="98"/>
+              <path d="M112 36 h14 M112 50 h14 M112 64 h14 M112 78 h14 M112 92 h14 M112 106 h14"/>
+            </g>
+            <text class="t ja" transform="translate(123 60) rotate(90)" style="font-size:7px;fill:#4a4f57">社外</text><text class="t en" transform="translate(123 52) rotate(90)" style="font-size:6.5px;fill:#4a4f57">outside</text>
+            <path d="M160 88 q-16 0 -13 -13 q-4 -15 13 -13 q7 -13 20 -4 q15 -2 13 11 q10 6 0 15 q-4 11 -17 6 q-9 8 -16 -2 Z" fill="#fff" stroke="#8a9099" stroke-width="1.2" stroke-dasharray="3 2"/>
+            <text class="t ja" x="150" y="80" style="font-size:8.5px">社外 AI</text><text class="t en" x="142" y="80" style="font-size:8px">external AI</text>
+            <rect x="8" y="122" width="132" height="28" rx="4" class="bub"/><path d="M40 122 L46 112 L52 122" fill="#fff" stroke="#17191c" stroke-width="1.1"/><line x1="41.5" y1="122" x2="50.5" y2="122" stroke="#fff" stroke-width="2"/>
+            <text class="t ja" x="14" y="134">臨床データは、</text><text class="t ja" x="14" y="145">外に出せない…</text>
+            <text class="t en" x="14" y="134">Clinical data can't</text><text class="t en" x="14" y="145">leave the building…</text>
 
-            <!-- Panel 2: B different every run -->
-            <rect x="225" y="0.8" width="214" height="154" class="k"/>
+            <!-- 2 · different every run -->
+            <rect x="225" y="1" width="214" height="154" class="pan"/>
             <text class="n" x="232" y="14">2</text>
-            <rect x="248" y="34" width="60" height="42" rx="2" class="k"/><rect x="318" y="34" width="60" height="42" rx="2" class="k"/>
-            <text class="s" x="252" y="46" style="font-size:7.5px">input A</text><text class="s" x="322" y="46" style="font-size:7.5px">input A</text>
-            <text class="t" x="252" y="62" style="font-size:10px">OR 0.83</text><text class="t" x="322" y="62" style="font-size:10px">OR 1.42</text>
-            <text class="s ja" x="252" y="72" style="font-size:7px">月曜</text><text class="s ja" x="322" y="72" style="font-size:7px">火曜</text>
-            <text class="s en" x="252" y="72" style="font-size:7px">Monday</text><text class="s en" x="322" y="72" style="font-size:7px">Tuesday</text>
-            <line x1="248" y1="76" x2="378" y2="76" class="k"/>
-            <g transform="translate(312 104)"><use href="#body"/><use href="#face"/><path d="M-7 6 Q0 2 7 6" class="k"/><path d="M15 -8 q3 5 0 8 q-3 -3 0 -8 Z" fill="#1e3a8a"/></g>
-            <text class="t" x="296" y="92" style="font-size:12px">?</text>
-            <rect x="232" y="118" width="110" height="28" rx="6" class="bub"/><path d="M300 118 L306 108 L312 118" fill="#fff" stroke="#111" stroke-width="1.2"/><line x1="301.5" y1="118" x2="310.5" y2="118" stroke="#fff" stroke-width="2"/>
-            <text class="t ja" x="238" y="130">同じ入力なのに</text><text class="t ja" x="238" y="141">数字が毎回ちがう</text>
-            <text class="t en" x="238" y="130">Same input,</text><text class="t en" x="238" y="141">different number</text>
+            <rect x="230" y="20" width="204" height="100" fill="#f7f6f2"/>
+            <g fill="#fff" stroke="#17191c" stroke-width="1.3"><rect x="246" y="30" width="64" height="44" rx="2"/><rect x="318" y="30" width="64" height="44" rx="2"/></g>
+            <rect x="246" y="30" width="64" height="9" fill="#e8ebf0"/><rect x="318" y="30" width="64" height="9" fill="#e8ebf0"/>
+            <text class="s" x="250" y="37" style="font-size:6px">input A · Mon</text><text class="s" x="322" y="37" style="font-size:6px">input A · Tue</text>
+            <text class="t" x="252" y="58" style="font-size:11px;font-weight:600">OR 0.83</text><text class="t" x="324" y="58" style="font-size:11px;font-weight:600">OR 1.42</text>
+            <path d="M252 66 h30 M252 70 h22" stroke="#c9ccd3" stroke-width="1.5"/><path d="M324 66 h30 M324 70 h22" stroke="#c9ccd3" stroke-width="1.5"/>
+            <path d="M246 78 h136" stroke="#8a9099" stroke-width="1"/>
+            <g transform="translate(314 102)"><use href="#pB"/><use href="#eyesDot"/><path d="M-5 7 q5 -3 10 0" class="k" stroke-width="1.2" transform="scale(1 -1) translate(0 -12)"/><path d="M15 -9 q3 5 0 8 q-3 -3 0 -8 Z" fill="#1f3b6e"/></g>
+            <text x="296" y="94" style="font:600 13px 'Source Serif 4',Georgia,serif;fill:#17191c">?</text>
+            <rect x="232" y="122" width="116" height="28" rx="4" class="bub"/><path d="M304 122 L310 112 L316 122" fill="#fff" stroke="#17191c" stroke-width="1.1"/><line x1="305.5" y1="122" x2="314.5" y2="122" stroke="#fff" stroke-width="2"/>
+            <text class="t ja" x="238" y="134">同じ入力なのに、</text><text class="t ja" x="238" y="145">数字が毎回ちがう</text>
+            <text class="t en" x="238" y="134">Same input,</text><text class="t en" x="238" y="145">different number</text>
 
-            <!-- Panel 3: C only in the senior's head -->
-            <rect x="0.8" y="165" width="214" height="154" class="k"/>
+            <!-- 3 · only in the senior's head -->
+            <rect x="1" y="165" width="214" height="154" class="pan"/>
             <text class="n" x="8" y="178">3</text>
-            <g transform="translate(60 250)"><use href="#body"/><use href="#face"/><path d="M-9 4 Q0 8 9 4" class="k"/><path d="M-9 -3 h7 M2 -3 h7" class="k"/></g>
-            <path d="M80 205 q-10 0 -8 -9 q-3 -9 8 -8 q4 -9 13 -3 q11 -2 9 8 q8 5 0 11 q-3 7 -12 4 q-6 6 -10 -3 Z" class="k"/>
-            <circle cx="74" cy="222" r="2" class="k"/><circle cx="69" cy="229" r="1.4" class="k"/>
-            <text class="t" x="79" y="197" style="font-size:6.5px">AUC? Cmax?</text><text class="t ja" x="81" y="206" style="font-size:6.5px">AE の時間…</text><text class="t en" x="81" y="206" style="font-size:6.5px">AE timing…</text>
-            <g transform="translate(150 250)"><use href="#body"/><use href="#face"/><path d="M-6 6 Q0 3 6 6" class="k"/></g>
-            <text class="t" x="166" y="226" style="font-size:14px">?</text>
-            <rect x="8" y="283" width="140" height="28" rx="6" class="bub"/><path d="M140 283 L146 273 L152 283" fill="#fff" stroke="#111" stroke-width="1.2"/><line x1="141.5" y1="283" x2="150.5" y2="283" stroke="#fff" stroke-width="2"/>
-            <text class="t ja" x="14" y="295">判断基準は先輩の</text><text class="t ja" x="14" y="306">頭の中にしかない</text>
-            <text class="t en" x="14" y="295">The rules live only</text><text class="t en" x="14" y="306">in the senior's head</text>
+            <rect x="6" y="184" width="204" height="100" fill="#f7f6f2"/>
+            <g transform="translate(60 252)"><use href="#pS"/><path d="M-5 6 q5 3 10 0" class="k" stroke-width="1.2"/></g>
+            <path d="M84 212 q-11 0 -9 -10 q-3 -10 9 -9 q4 -10 14 -3 q12 -2 10 9 q9 5 0 12 q-3 8 -13 4 q-7 7 -11 -3 Z" fill="#fff" stroke="#8a9099" stroke-width="1.1"/>
+            <circle cx="76" cy="226" r="2.2" fill="#fff" stroke="#8a9099" stroke-width="1.1"/><circle cx="71" cy="233" r="1.5" fill="#fff" stroke="#8a9099" stroke-width="1.1"/>
+            <text class="t" x="82" y="203" style="font-size:6.5px">AUC? Cmax?</text><text class="t ja" x="84" y="212" style="font-size:6.5px">AE の時間…</text><text class="t en" x="84" y="212" style="font-size:6.5px">AE timing…</text>
+            <g transform="translate(152 252)"><use href="#pA"/><use href="#eyesDot"/><path d="M-4 6 q4 -2 8 0" class="k" stroke-width="1.2"/></g>
+            <text x="168" y="226" style="font:600 15px 'Source Serif 4',Georgia,serif;fill:#17191c">?</text>
+            <rect x="8" y="286" width="144" height="28" rx="4" class="bub"/><path d="M142 286 L148 276 L154 286" fill="#fff" stroke="#17191c" stroke-width="1.1"/><line x1="143.5" y1="286" x2="152.5" y2="286" stroke="#fff" stroke-width="2"/>
+            <text class="t ja" x="14" y="298">判断基準は、先輩の</text><text class="t ja" x="14" y="309">頭の中にしかない</text>
+            <text class="t en" x="14" y="298">The rules live only</text><text class="t en" x="14" y="309">in the senior's head</text>
 
-            <!-- Panel 4: answer -->
-            <rect x="225" y="165" width="214" height="154" class="k"/>
+            <!-- 4 · the answer -->
+            <rect x="225" y="165" width="214" height="154" class="pan"/>
             <text class="n" x="232" y="178">4</text>
-            <path d="M240 205 L240 300 L420 300 L420 205 L330 180 Z" class="k"/>
-            <text class="t ja" x="312" y="211" style="font-size:8px">貴社の環境</text><text class="t en" x="300" y="211" style="font-size:8px">your environment</text>
-            <rect x="252" y="218" width="34" height="26" class="navy"/><text x="262" y="236" style="font:700 13px Georgia,serif;fill:#fff">R</text>
-            <rect x="294" y="218" width="62" height="26" class="k"/>
-            <text class="t ja" x="298" y="229" style="font-size:7.5px">判断 ✓ 根拠 ✓</text><text class="t ja" x="298" y="239" style="font-size:7.5px">すべて記録</text>
-            <text class="t en" x="298" y="229" style="font-size:7px">decision ✓ basis ✓</text><text class="t en" x="298" y="239" style="font-size:7px">all on record</text>
-            <g transform="translate(372 258)"><use href="#body"/><use href="#face"/><path d="M-9 3 Q0 10 9 3" class="k"/><path d="M-9 -3 h7 M2 -3 h7" class="k"/></g>
-            <g transform="translate(402 258)"><use href="#body"/><use href="#face"/><path d="M-9 3 Q0 10 9 3" class="k"/></g>
-            <rect x="250" y="252" width="104" height="40" rx="6" class="bub"/><path d="M340 272 L352 266 L340 260" fill="#fff" stroke="#111" stroke-width="1.2"/><line x1="340" y1="261.5" x2="340" y2="270.5" stroke="#fff" stroke-width="2"/>
-            <text class="t ja" x="256" y="264">中で動く。</text><text class="t ja" x="256" y="275">記録が残る。</text><text class="t ja" x="256" y="286">誰がやっても同じ。</text>
-            <text class="t en" x="256" y="264">Runs inside.</text><text class="t en" x="256" y="275">Everything on record.</text><text class="t en" x="256" y="286">Same result, anyone.</text>
+            <path d="M238 206 L238 306 L426 306 L426 206 L332 182 Z" fill="#f7f6f2" stroke="#17191c" stroke-width="1.5"/>
+            <text class="t ja" x="312" y="200" style="font-size:7.5px;fill:#4a4f57">貴社の環境</text><text class="t en" x="300" y="200" style="font-size:7.5px;fill:#4a4f57">your environment</text>
+            <rect x="250" y="216" width="36" height="28" class="navy"/><text x="261" y="236" style="font:600 14px 'Source Serif 4',Georgia,serif;fill:#fff">R</text>
+            <rect x="294" y="216" width="70" height="28" fill="#fff" stroke="#17191c" stroke-width="1.2"/>
+            <text class="t ja" x="299" y="228" style="font-size:7.5px">判断 ✓　根拠 ✓</text><text class="t ja" x="299" y="239" style="font-size:7.5px">すべて記録</text>
+            <text class="t en" x="299" y="228" style="font-size:7px">decision ✓  basis ✓</text><text class="t en" x="299" y="239" style="font-size:7px">everything on record</text>
+            <g transform="translate(372 262)"><use href="#pS"/><use href="#eyesHappy"/><path d="M-6 5 q6 5 12 0" class="k" stroke-width="1.2"/></g>
+            <g transform="translate(404 262)"><use href="#pA"/><use href="#eyesHappy"/><path d="M-6 5 q6 5 12 0" class="k" stroke-width="1.2"/></g>
+            <rect x="248" y="254" width="108" height="42" rx="4" class="bub"/><path d="M344 276 L356 270 L344 264" fill="#fff" stroke="#17191c" stroke-width="1.1"/><line x1="344" y1="265.5" x2="344" y2="274.5" stroke="#fff" stroke-width="2"/>
+            <text class="t ja" x="254" y="267">中で動く。</text><text class="t ja" x="254" y="278">記録が残る。</text><text class="t ja" x="254" y="289">誰がやっても同じ。</text>
+            <text class="t en" x="254" y="267">Runs inside.</text><text class="t en" x="254" y="278">Everything on record.</text><text class="t en" x="254" y="289">Same result, anyone.</text>
           </svg>
         </div>
         <div class="box">
