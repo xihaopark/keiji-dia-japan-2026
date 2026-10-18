@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Keiji AI DIA Japan Booth</title>
+<style>
+  /* Layout: one quiet launcher card per booth screen, stacked on phones, side by side on tablets. */
+  :root{--bg:#f3f4f7;--panel:#ffffff;--fg:#15181d;--fg2:#4b5260;--mute:#8a90a0;--line:#dfe3ea;--accent:#0f4c81;--accent-fg:#ffffff}
+  @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#0f141c;--panel:#182030;--fg:#eef2f7;--fg2:#b8c2d0;--mute:#7f8a9b;--line:#2a3445;--accent:#5aa3e6;--accent-fg:#0b1220;color-scheme:dark}}
+  :root[data-theme="dark"]{--bg:#0f141c;--panel:#182030;--fg:#eef2f7;--fg2:#b8c2d0;--mute:#7f8a9b;--line:#2a3445;--accent:#5aa3e6;--accent-fg:#0b1220;color-scheme:dark}
+  body{background:var(--bg);color:var(--fg);font-family:-apple-system,"Hiragino Sans","Hiragino Kaku Gothic ProN","Helvetica Neue",Arial,sans-serif;
+    padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:32px}
+  .wrap{max-width:1040px;margin:0 auto}
+  h1{font-size:28px;margin:0 0 6px;text-wrap:balance}
+  .sub{color:var(--fg2);margin:0 0 28px;max-width:60ch}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+  a.card{display:flex;flex-direction:column;gap:10px;min-width:0;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:22px;text-decoration:none;color:var(--fg)}
+  a.card:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+  .tag{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);font-weight:700}
+  .ja{font-size:22px;font-weight:700;line-height:1.3}
+  .en{font-size:15px;color:var(--fg2);line-height:1.4}
+  .btn{margin-top:auto;align-self:flex-start;background:var(--accent);color:var(--accent-fg);font-weight:700;padding:10px 16px;border-radius:10px;font-size:15px}
+  .note{margin-top:26px;font-size:13px;color:var(--mute);max-width:70ch}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <h1>Keiji AI · DIA Japan 2026 booth</h1>
+  <p class="sub">展示用の 3 画面。iPad の Safari で開き、「ホーム画面に追加」して全画面で使ってください。<br>Three booth screens. Open in Safari on the iPad, then Add to Home Screen for full screen.</p>
+  <div class="grid">
+    <a class="card" href="demo/index.html">
+      <span class="tag">Tablet A · Live demo</span>
+      <span class="ja">クイックツアー（英語 UI の実行記録）</span>
+      <span class="en">Recorded ERAgent run on mock data with a five-stop tour bar: Data Summary, QC, figures, ER modeling, report. Nothing executes; every page is a real result.</span>
+      <span class="btn">Open demo</span>
+    </a>
+    <a class="card" href="brief.html">
+      <span class="tag">Tablet B · Briefing</span>
+      <span class="ja">2 ページのブリーフィング（日英切替）</span>
+      <span class="en">Two-page white-paper style brief: team and partners, where we sit in the trial chain, what we solve for in-house AI adoption. Language toggle top right.</span>
+      <span class="btn">Open brief</span>
+    </a>
+    <a class="card" href="flipbook.html">
+      <span class="tag">Backup · Flipbook</span>
+      <span class="ja">8 画面のスワイプ資料（日英併記）</span>
+      <span class="en">Eight bilingual swipe screens: who we are, the problem, input and output, not just an LLM, auditability, security, contact.</span>
+      <span class="btn">Open flipbook</span>
+    </a>
+  </div>
+  <p class="note">All figures and reports come from one recorded run on the Mock01 dataset. Data stays mock; no customer data appears anywhere on these pages.</p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+/* Quick-tour bar for the booth tablet. Sits on top of the recorded demo; nothing else changes. */
+#tourBar{position:fixed;left:0;right:0;bottom:0;height:76px;z-index:9999;display:flex;align-items:center;gap:14px;
+  padding:0 18px;background:#1e3a8a;color:#fff;box-shadow:0 -6px 24px rgba(0,0,0,.18);
+  font-family:-apple-system,"Hiragino Sans","Hiragino Kaku Gothic ProN","Helvetica Neue",Arial,sans-serif;
+  -webkit-user-select:none;user-select:none}
+#tourBar .tour-brand{font-weight:800;font-size:18px;letter-spacing:.02em;line-height:1.1;flex:0 0 auto;padding-right:14px;border-right:1px solid rgba(255,255,255,.18)}
+#tourBar .tour-brand small{display:block;font-weight:500;font-size:11px;color:#93c5fd;letter-spacing:.06em;margin-top:3px}
+#tourBar .tour-stops{display:flex;gap:8px;flex:1}
+#tourBar button{flex:1;display:flex;align-items:center;gap:10px;height:54px;padding:0 12px;border-radius:12px;
+  border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.06);color:#fff;text-align:left;cursor:pointer;-webkit-tap-highlight-color:transparent}
+#tourBar button b{width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,.14);display:flex;align-items:center;justify-content:center;font-size:13px;flex:0 0 auto}
+#tourBar button span{display:flex;flex-direction:column;line-height:1.15;font-size:12px;color:#c8d6e8;min-width:0}
+#tourBar button span em{font-style:normal;font-weight:700;font-size:15px;color:#fff;white-space:nowrap}
+#tourBar button.is-active{background:#2563eb;border-color:#2563eb}
+#tourBar button.is-active b{background:#fff;color:#1e3a8a}
+#tourBar button.is-active span{color:#e6f0fb}
+#tourBar button:active{transform:scale(.98)}
+/* Leave room so the bar never covers the end of a page. */
+#workflowPage,#homePage{padding-bottom:96px !important}
+.sidebar,aside{padding-bottom:80px}
+
+/* Figure gallery for the Figures stop. */
+#tourGallery{position:fixed;left:0;right:0;top:0;bottom:76px;z-index:9998;background:#f5f8fb;display:none;flex-direction:column;
+  font-family:-apple-system,"Hiragino Sans","Hiragino Kaku Gothic ProN","Helvetica Neue",Arial,sans-serif}
+#tourGallery.is-open{display:flex}
+#tourGallery .tg-head{display:flex;align-items:baseline;gap:16px;padding:18px 28px 8px;color:#15181d}
+#tourGallery .tg-head b{font-size:24px}
+#tourGallery .tg-head span{font-size:14px;color:#6b7280}
+#tourGallery .tg-track{flex:1;display:flex;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;gap:24px;padding:8px 28px 20px;min-height:0}
+#tourGallery figure{flex:0 0 calc(100% - 56px);scroll-snap-align:center;margin:0;display:flex;flex-direction:column;min-height:0;background:#fff;border:1px solid #e3e6ec;border-radius:14px;padding:16px}
+#tourGallery figure img{flex:1;min-height:0;width:100%;object-fit:contain;object-position:top center}
+#tourGallery figcaption{margin-top:10px;font-size:14px;color:#4b5260;line-height:1.4}
+#tourGallery figcaption em{display:block;font-style:normal;font-weight:700;font-size:17px;color:#15181d}
+
+/* Booth simplification: guided view only. Sidebar, task panel and top bar are hidden;
+   the tour bar is the only navigation. */
+#sidebar,#assistant,.topbar{display:none !important}
+.app-shell{grid-template-columns:1fr !important}
+.main-area{width:100% !important;max-width:none !important;flex:1 1 auto !important}
+
+/* Step caption strip at the top of every stop. */
+#tourCap{position:fixed;left:0;right:0;top:0;z-index:9997;background:#eaf1fe;border-bottom:1px solid #93c5fd;padding:10px 20px;display:flex;align-items:center;gap:14px;
+  font-family:-apple-system,"Hiragino Sans","Hiragino Kaku Gothic ProN","Helvetica Neue",Arial,sans-serif;color:#15181d}
+#tourCap i{flex:0 0 auto;width:40px;height:40px;border-radius:50%;background:#1e3a8a;color:#fff;font-style:normal;font-weight:800;font-size:20px;display:flex;align-items:center;justify-content:center}
+#tourCap b{display:block;font-size:17px;line-height:1.3;color:#0f172a}
+#tourCap span{display:block;font-size:13px;color:#475569;line-height:1.35;margin-top:2px}
+#tourGallery{top:74px}
+.main-area{padding-top:74px !important}
+
+#tourBar,#tourCap,#tourGallery{font-family:Montserrat,-apple-system,"Hiragino Sans","Hiragino Kaku Gothic ProN","Helvetica Neue",Arial,sans-serif}

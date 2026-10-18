@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="demo-token" content="demo">
+  <script>try{localStorage.setItem("eragent:language","en")}catch(e){}</script>
+  <script src="demo-recording-1.js"></script>
+  <script src="demo-recording-2.js"></script>
+  <script src="demo-replay.js"></script>
+  <script defer src="host-transport.js"></script>
+  <title>ER Agent</title>
+  <link rel="stylesheet" href="demo.css">
+  <link rel="stylesheet" href="live.css">
+  <link rel="stylesheet" href="product.css">
+  <link rel="stylesheet" href="theme.css">
+  <link rel="stylesheet" href="tour.css">
+</head>
+<body class="assistant-collapsed">
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand-block">
+        <div class="brand-mark">ER</div>
+        <div class="brand-copy"><strong>Exposure-Response</strong><span>Analysis Agent</span></div>
+        <button class="project-switch" id="projectSwitch" type="button" title="项目列表"><span id="sidebarProjectName">项目列表</span><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3.5 4.5 2.5-2.5 2.5 2.5M3.5 7.5 6 10l2.5-2.5"/></svg></button>
+        <button class="icon-button sidebar-toggle" id="sidebarToggle" type="button" aria-label="Toggle navigation" aria-expanded="true">‹</button>
+      </div>
+      <nav class="workflow-nav" aria-label="项目分析流程">
+        <button class="nav-item active" data-step="home" type="button"><span class="nav-number">⌂</span><span class="nav-text">项目列表</span></button>
+        <div class="nav-divider"></div>
+        <button class="nav-item" data-step="database" type="button"><span class="nav-number">1</span><span class="nav-text">数据阅览与选择</span><span class="nav-state"><i class="nav-status-icon is-pending"></i><span class="nav-status-text">未启动</span></span></button>
+        <div class="nav-divider"></div>
+        <button class="nav-item" data-step="upload" type="button"><span class="nav-number">1.1</span><span class="nav-text">数据上传</span><span class="nav-state"><i class="nav-status-icon is-pending"></i><span class="nav-status-text">未启动</span></span></button>
+        <button class="nav-item" data-step="screening" type="button"><span class="nav-number">1.2</span><span class="nav-text">人工数据筛选</span><span class="nav-state"><i class="nav-status-icon is-pending"></i><span class="nav-status-text">未启动</span></span></button>
+        <button class="nav-item" data-step="protocol" type="button"><span class="nav-number">1.3</span><span class="nav-text">上传 Protocol</span><span class="nav-state"><i class="nav-status-icon is-pending"></i><span class="nav-status-text">未启动</span></span></button>
+        <button class="nav-item" data-step="summary" type="button"><span class="nav-number">2</span><span class="nav-text">Data Summary</span><span class="nav-state"><i class="nav-status-icon is-pending"></i><span class="nav-status-text">未启动</span></span></button>
+        <button class="nav-item" data-step="qc" type="button"><span class="nav-number">3</span><span class="nav-text">数据质量 QC</span><span class="nav-state"><i class="nav-status-icon is-pending"></i><span class="nav-status-text">未启动</span></span></button>
+        <button class="nav-item" data-step="preparation" type="button"><span class="nav-number">4</span><span class="nav-text">Analysis Data</span><span class="nav-state"><i class="nav-status-icon is-pending"></i><span class="nav-status-text">未启动</span></span></button>
+        <button class="nav-item" data-step="charts" type="button"><span class="nav-number">5</span><span class="nav-text">分析与绘图</span><span class="nav-state"><i class="nav-status-icon is-pending"></i><span class="nav-status-text">未启动</span></span></button>
+        <button class="nav-item" data-step="exposure" type="button"><span class="nav-number">6</span><span class="nav-text">暴露–效应</span><span class="nav-state"><i class="nav-status-icon is-pending"></i><span class="nav-status-text">未启动</span></span></button>
+        <div class="nav-divider"></div>
+        <button class="nav-item" data-step="issues" type="button"><span class="nav-number">◇</span><span class="nav-text">问题台账</span><span class="nav-state"><i class="nav-status-icon is-pending"></i><span class="nav-status-text">未启动</span></span></button>
+        <button class="nav-item" data-step="decisions" type="button"><span class="nav-number">◈</span><span class="nav-text">研究口径</span><span class="nav-state"><i class="nav-status-icon is-pending"></i><span class="nav-status-text">未确认</span></span></button>
+      </nav>
+      <div class="sidebar-live" id="sidebarLive" hidden><span class="live-icon" aria-hidden="true">✦</span><span class="live-copy"><strong id="sidebarLiveTitle"></strong><small id="sidebarLiveDetail"></small></span></div>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar">
+        <div><span class="eyebrow">ERAGENT</span><h1>研究工作区</h1></div>
+        <div class="topbar-actions">
+          <button id="languageToggle" class="language-toggle" type="button" data-i18n-skip>EN</button>
+          <label class="model-route-control">Claude 模型
+            <select id="modelOverride" aria-describedby="modelRoutePreview">
+              <option value="">自动选择</option>
+              <option value="haiku">Haiku</option>
+              <option value="sonnet">Sonnet</option>
+              <option value="opus">Opus</option>
+            </select>
+            <small id="modelRoutePreview">确定性操作不调用模型</small>
+          </label>
+        </div>
+      </header>
+      <div id="notice" role="alert" aria-live="polite"></div>
+      <section class="page-content" id="homePage"></section>
+      <section class="page-content hidden" id="workflowPage">
+        <div class="workflow-header"><div><span class="eyebrow">当前项目</span><h2 id="workflowTitle">项目</h2></div><button class="secondary-button" id="backHomeButton" type="button">← 项目列表</button></div>
+        <div class="workspace-grid"><article class="work-panel" id="stepPanel">
+          <div class="step-kicker" id="stepKicker">步骤 1</div><h3 id="stepTitle">数据库</h3><p class="step-intro" id="stepIntro">查看并准备研究数据。</p><button class="presets-button" id="stepPresetsButton" type="button" hidden>查看预设</button>
+          <div class="step-content" id="stepContent"></div><div class="panel-footer"><span class="save-state" id="saveState"></span></div>
+        </article></div>
+      </section>
+    </main>
+
+    <aside class="assistant collapsed" id="assistant" aria-label="分析任务">
+      <div class="assistant-head"><div><span class="eyebrow">TASKS</span><h2>任务记录</h2><small id="taskCount">0</small></div><button class="icon-button assistant-toggle" id="assistantToggle" type="button" aria-label="展开分析任务" aria-expanded="false">›</button></div>
+      <div class="assistant-context"><span class="status-dot" id="connectionDot"></span><span id="assistantContext">正在连接</span></div>
+      <div id="taskRail" class="chat-messages"></div>
+    </aside>
+  </div>
+  <div class="modal-backdrop hidden" id="createModal"><div class="form-modal"><h3>创建新项目</h3><p class="modal-subtitle">建立一个新的 Exposure-Response 分析工作区。</p><form class="project-form" id="createProjectForm"><label class="form-field">项目名称<input id="projectNameInput" name="projectName" type="text" placeholder="例如：HCC Exposure Response Study" required></label><label class="form-field">项目描述<textarea id="projectDescriptionInput" name="projectDescription" placeholder="请输入项目的研究目的或数据说明" required></textarea></label><div class="modal-actions"><button class="secondary-button" id="cancelCreate" type="button">取消</button><button class="primary-button" type="submit">确认创建</button></div></form></div></div>
+  <div class="modal-backdrop hidden" id="presetsModal"><div class="presets-modal" role="dialog" aria-labelledby="presetsTitle"><header><div><h3 id="presetsTitle">预设</h3><p>Agent 实际读取的原文，只读。</p></div><button class="secondary-button" id="closePresets" type="button">关闭</button></header><div id="presetsBody" class="presets-body"></div></div></div>
+  <div class="modal-backdrop hidden" id="deleteModal"><div class="confirm-modal"><div class="modal-icon">!</div><h3>确认删除项目？</h3><p>项目将移入归档，可由管理员恢复。</p><div class="modal-actions"><button class="secondary-button" id="cancelDelete" type="button">取消</button><button class="danger-button" id="confirmDelete" type="button">确认删除</button></div></div></div>
+  <div class="modal-backdrop hidden" id="agentActionModal"><div class="confirm-modal"><div class="modal-icon">!</div><h3 id="agentActionTitle">确认操作？</h3><p id="agentActionDescription"></p><div class="modal-actions"><button class="secondary-button" id="cancelAgentAction" type="button">取消</button><button class="danger-button" id="confirmAgentAction" type="button">确认</button></div></div></div>
+  <script defer src="batch-reply-model.js"></script>
+  <script defer src="ui-model.js"></script><script defer src="screening-model.js"></script><script defer src="api.js"></script><script defer src="i18n-en.js"></script><script defer src="i18n.js"></script><script defer src="model-route-ui.js"></script><script defer src="workbench-requests.js"></script><script defer src="runtime-polling.js"></script><script defer src="file-bridge.js"></script><script defer src="core-view.js"></script><script defer src="home-format.js"></script><script defer src="project-page.js"></script><script defer src="progress-presenter.js"></script><script defer src="conversation-history-presenter.js"></script><script defer src="conversation-presenter.js"></script><script defer src="conversation-controls.js"></script><script defer src="conversations.js"></script><script defer src="qc-records.js"></script><script defer src="subject-flow.js"></script><script defer src="data-page.js"></script><script defer src="screening-page.js"></script><script defer src="markdown-renderer.js"></script><script defer src="qc-supplemental.js"></script><script defer src="analysis-page.js"></script><script defer src="exploration-page.js"></script><script defer src="analysis-batch.js"></script><script defer src="navigation.js"></script><script defer src="analysis-data-page.js"></script><script defer src="charts.js"></script><script defer src="result-actions.js"></script><script defer src="decision-panel.js"></script><script defer src="model-results.js"></script><script defer src="exposure-page.js"></script><script defer src="decision-hub-page.js"></script><script defer src="issue-ledger-page.js"></script><script defer src="app.js"></script>
+  <script defer src="product-workflow.js"></script>
+  <script defer src="qc-page.js"></script>
+<script src="tour.js"></script>
+</body>
+</html>
