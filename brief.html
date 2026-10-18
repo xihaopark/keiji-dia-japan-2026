@@ -6,223 +6,213 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <title>Keiji AI — Briefing, DIA Japan 2026</title>
 <style>
-  :root{--ink:#0f172a;--ink2:#475569;--mute:#94a3b8;--line:#e2e8f0;--navy:#1e3a8a;--blue:#2563eb;--sky:#93c5fd;--gold:#b8862b;--paper:#ffffff;--tint:#f5f8fb;--tint2:#eaf1fe;--red:#dc2626;--redbg:#fdf2f2;--green:#15803d}
+  :root{--ink:#111111;--ink2:#444444;--mute:#7a7a7a;--rule:#111111;--hair:#d6d6d6;--navy:#1e3a8a;--paper:#ffffff;--grey:#e8e8e8}
   *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-  html,body{margin:0;height:100%;background:#e9edf3;color:var(--ink);-webkit-user-select:none;user-select:none;
-    font-family:Montserrat,-apple-system,"Hiragino Sans","Hiragino Kaku Gothic ProN","Helvetica Neue",Arial,sans-serif;font-size:15px;line-height:1.5}
+  html,body{margin:0;height:100%;background:#f0f0f0;color:var(--ink);-webkit-user-select:none;user-select:none;
+    font-family:"Helvetica Neue",Helvetica,Arial,"Hiragino Sans","Hiragino Kaku Gothic ProN",sans-serif;font-size:13.5px;line-height:1.5}
+  .serif{font-family:Georgia,"Times New Roman","Hiragino Mincho ProN","Yu Mincho",serif}
   #book{height:100vh;overflow-y:auto;scroll-snap-type:y mandatory;scrollbar-width:none}
   #book::-webkit-scrollbar{display:none}
   body.en .ja{display:none !important} body.ja .en{display:none !important}
-  #lang{position:fixed;top:14px;right:18px;z-index:20;display:flex;border:1px solid var(--line);border-radius:999px;background:#fff;overflow:hidden;font-size:13px;box-shadow:0 2px 10px rgba(15,23,42,.08)}
-  #lang button{appearance:none;border:0;background:transparent;padding:8px 16px;color:var(--mute);font-weight:600}
-  #lang button.on{background:var(--navy);color:#fff}
-  .page{height:100vh;scroll-snap-align:start;scroll-snap-stop:always;background:var(--paper);padding:30px 56px 26px;display:grid;grid-template-rows:auto 1fr auto;gap:16px;position:relative}
-  .page+.page{border-top:1px solid var(--line)}
-  .mast{display:flex;align-items:center;justify-content:space-between;border-bottom:2px solid var(--navy);padding-bottom:10px}
-  .mast .brand{font-weight:800;font-size:19px;letter-spacing:.02em;color:var(--navy)}
-  .mast .brand small{font-weight:600;font-size:11px;color:var(--mute);letter-spacing:.14em;text-transform:uppercase;margin-left:12px}
-  .mast .step{font-size:12px;color:var(--mute);letter-spacing:.12em;text-transform:uppercase;font-weight:700;margin-right:150px}
-  .mast .step b{color:var(--navy);font-size:16px;margin-right:6px}
-  h1{margin:0;font-size:32px;line-height:1.25;font-weight:800;letter-spacing:-.01em;max-width:24em}
-  h1 .sub{display:block;font-size:16px;font-weight:500;color:var(--ink2);margin-top:8px;line-height:1.45;max-width:48em}
-  .body{display:grid;gap:20px;min-height:0;align-content:start}
-  .card{background:var(--tint);border-radius:12px;padding:16px 20px}
-  .card h3{margin:0 0 8px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);font-weight:700}
-  .card .big{font-size:20px;font-weight:700;line-height:1.35}
-  .card p{margin:6px 0 0;color:var(--ink2);font-size:14px}
-  ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:9px}
-  li{position:relative;padding-left:20px;font-size:17px;line-height:1.45}
-  li::before{content:"";position:absolute;left:0;top:10px;width:9px;height:9px;border-radius:2px;background:var(--blue)}
-  .pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
-  .pills span{background:#fff;border:1.5px solid var(--navy);color:var(--navy);font-weight:700;font-size:15px;padding:6px 14px;border-radius:999px}
-  .foot{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--line);padding-top:10px;font-size:12px;color:var(--mute)}
-  .note{font-size:11.5px;color:var(--mute)}
-  /* reveal animation */
-  .rv{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
-  .in .rv{opacity:1;transform:none}
-  .in .rv:nth-child(2){transition-delay:.15s}.in .rv:nth-child(3){transition-delay:.3s}.in .rv:nth-child(4){transition-delay:.45s}.in .rv:nth-child(5){transition-delay:.6s}
-  @media (prefers-reduced-motion: reduce){.rv{transition:none;opacity:1;transform:none}}
-  /* 1: three origins map */
-  .orig{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:start}
-  .nodes{position:relative;height:250px;background:var(--tint);border-radius:12px;overflow:hidden}
-  .nodes svg{width:100%;height:100%}
-  .nodes .lbl{font:700 15px Montserrat,-apple-system,sans-serif;fill:var(--ink)}
-  .nodes .sm{font:500 12px Montserrat,-apple-system,sans-serif;fill:var(--ink2)}
-  .nodes .link{stroke:var(--sky);stroke-width:2.5;stroke-dasharray:420;stroke-dashoffset:420;transition:stroke-dashoffset 1.4s ease .2s}
-  .in .nodes .link{stroke-dashoffset:0}
-  .nodes circle{fill:var(--navy)}
-  /* 2: chain */
-  .chain{display:flex;align-items:stretch;margin-top:4px}
-  .chain .st{flex:1;border:1px solid var(--line);background:#fff;padding:14px 10px;text-align:center;position:relative;font-size:13px;line-height:1.3;border-radius:8px;opacity:.35;transition:opacity .4s,transform .4s}
-  .in .chain .st{opacity:1}
-  .in .chain .st:nth-child(1){transition-delay:.1s}.in .chain .st:nth-child(2){transition-delay:.35s}.in .chain .st:nth-child(3){transition-delay:.6s}.in .chain .st:nth-child(4){transition-delay:.85s}.in .chain .st:nth-child(5){transition-delay:1.1s}
-  .chain .st+.st{margin-left:18px}
-  .chain .st+.st::before{content:"";position:absolute;left:-18px;top:50%;width:18px;border-top:2px solid var(--mute)}
-  .chain .st+.st::after{content:"";position:absolute;left:-7px;top:calc(50% - 4px);border:4px solid transparent;border-left:6px solid var(--mute)}
-  .chain .st b{display:block;font-size:15px;color:var(--ink)}
-  .chain .st.us{background:var(--navy);color:#fff;border-color:var(--navy);flex:1.8}
-  .in .chain .st.us{transform:scale(1.04)}
-  .chain .st.us b{color:#fff;font-size:17px}
-  .chain .st.us span{color:#bfdbfe}
-  .io{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-  .io .card h3{color:var(--navy)}
-  /* 3: pains + chart */
-  .solve{display:grid;grid-template-columns:7fr 5fr;gap:22px;min-height:0}
-  .pa{display:grid;grid-template-columns:34px 1fr 1fr;gap:12px;align-items:stretch}
-  .pa .tag{font-size:20px;font-weight:800;color:var(--navy);padding-top:8px}
-  .pa .q{background:var(--redbg);border-left:4px solid var(--red);border-radius:8px;padding:10px 14px;font-size:14.5px;font-weight:600;line-height:1.4}
-  .pa .a{background:var(--tint2);border-left:4px solid var(--blue);border-radius:8px;padding:10px 14px;font-size:14.5px;line-height:1.4}
-  .pa .a::before{content:"→ ";color:var(--blue);font-weight:800}
-  .chart{background:var(--tint);border-radius:12px;padding:16px 20px;display:flex;flex-direction:column;gap:12px}
-  .chart h3{margin:0;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);font-weight:700}
-  .bars{display:flex;flex-direction:column;gap:10px}
-  .bar{display:grid;grid-template-columns:150px 1fr 56px;align-items:center;gap:10px;font-size:13.5px}
-  .bar .track{height:22px;background:#fff;border-radius:6px;overflow:hidden;border:1px solid var(--line)}
-  .bar .fill{height:100%;width:0;background:var(--mute);border-radius:6px;transition:width 1.2s cubic-bezier(.2,.7,.2,1) .3s}
-  .bar.k .fill{background:var(--blue)}
-  .in .bar .fill{width:var(--w)}
-  .bar .v{font-weight:700;color:var(--ink2);text-align:right}
-  .bar.k .v{color:var(--blue)}
-  .legend{font-size:12px;color:var(--ink2)}
-  .legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:middle}
-  /* 4: shields + timeline */
-  .sec{display:grid;grid-template-columns:1fr 1fr;gap:22px}
-  .shields{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
-  .shield{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 12px;text-align:center}
-  .shield b{display:block;font-size:17px;color:var(--navy);line-height:1.2}
-  .shield span{display:block;font-size:12px;color:var(--ink2);margin-top:4px}
-  .shield .ok{display:inline-block;width:28px;height:28px;border-radius:50%;background:var(--green);color:#fff;font-weight:800;line-height:28px;margin-bottom:8px}
-  .tl{position:relative;padding-left:34px;display:flex;flex-direction:column;gap:14px}
-  .tl::before{content:"";position:absolute;left:11px;top:6px;bottom:6px;width:3px;background:var(--line);border-radius:3px}
-  .tl::after{content:"";position:absolute;left:11px;top:6px;width:3px;height:0;background:var(--blue);border-radius:3px;transition:height 1.4s ease .3s}
-  .in .tl::after{height:calc(100% - 12px)}
-  .tl li{padding-left:0}
-  .tl li::before{left:-30px;top:4px;width:18px;height:18px;border-radius:50%;background:#fff;border:3px solid var(--blue)}
-  .tl li b{display:block;font-size:15.5px}
-  .tl li span{font-size:13.5px;color:var(--ink2)}
+  #lang{position:fixed;top:12px;right:16px;z-index:20;display:flex;border:1px solid var(--hair);background:#fff;font-size:12px}
+  #lang button{appearance:none;border:0;background:transparent;padding:7px 14px;color:var(--mute);font-weight:500;letter-spacing:.04em}
+  #lang button.on{background:var(--ink);color:#fff}
+  .page{height:100vh;scroll-snap-align:start;scroll-snap-stop:always;background:var(--paper);padding:34px 60px 26px;display:grid;grid-template-rows:auto 1fr auto;gap:20px;position:relative}
+  .page+.page{border-top:1px solid var(--hair)}
+  .mast{display:flex;justify-content:space-between;align-items:baseline;padding-right:170px;border-bottom:1px solid var(--rule);padding-bottom:8px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+  .mast b{color:var(--ink);font-weight:700;letter-spacing:.14em}
+  h1{margin:0;font-family:Georgia,"Times New Roman","Hiragino Mincho ProN","Yu Mincho",serif;font-weight:400;font-size:34px;line-height:1.25;letter-spacing:-.005em;max-width:26em}
+  h1 .sub{display:block;font-family:"Helvetica Neue",Helvetica,Arial,"Hiragino Sans",sans-serif;font-size:14.5px;color:var(--ink2);margin-top:12px;line-height:1.5;max-width:60em}
+  h2{margin:0 0 10px;font-family:Georgia,"Times New Roman","Hiragino Mincho ProN",serif;font-weight:400;font-size:19px;line-height:1.3;padding-top:8px;border-top:1px solid var(--rule)}
+  h2 .n{color:var(--navy);margin-right:10px}
+  h3{margin:0 0 6px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);font-weight:700}
+  p{margin:0 0 6px}
+  ul{margin:0;padding:0;list-style:none}
+  li{position:relative;padding-left:14px;margin-bottom:5px;line-height:1.45}
+  li::before{content:"";position:absolute;left:0;top:9px;width:5px;height:1px;background:var(--ink)}
+  .grid{display:grid;gap:30px;min-height:0;align-content:start}
+  .g-2{grid-template-columns:1fr 1fr}
+  .g-3{grid-template-columns:1fr 1fr 1fr}
+  .g-7-5{grid-template-columns:7fr 5fr}
+  .g-5-7{grid-template-columns:5fr 7fr}
+  /* pull stats */
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;border-top:1px solid var(--rule);border-bottom:1px solid var(--hair);padding:14px 0}
+  .stat .v{font-family:Georgia,"Times New Roman",serif;font-size:36px;line-height:1;color:var(--navy)}
+  .stat .l{font-size:12px;color:var(--ink2);margin-top:6px;line-height:1.4}
+  /* table */
+  table{border-collapse:collapse;width:100%;font-size:12.5px}
+  td{padding:7px 10px 7px 0;border-bottom:1px solid var(--hair);vertical-align:top}
+  td.k{width:30%;font-weight:700;color:var(--ink)}
+  .names{color:var(--ink);font-weight:700}
+  /* chain */
+  .chain{display:flex;align-items:stretch;margin:6px 0 14px}
+  .chain .st{flex:1;border:1px solid var(--ink);padding:9px 8px;text-align:center;font-size:11.5px;line-height:1.3;position:relative;background:#fff}
+  .chain .st+.st{margin-left:16px}
+  .chain .st+.st::before{content:"";position:absolute;left:-16px;top:50%;width:16px;border-top:1px solid var(--ink)}
+  .chain .st+.st::after{content:"";position:absolute;left:-5px;top:calc(50% - 3px);border:3px solid transparent;border-left:5px solid var(--ink)}
+  .chain .st b{display:block;font-size:12.5px}
+  .chain .st.us{background:var(--navy);border-color:var(--navy);color:#fff;flex:1.7}
+  .chain .st.us b{color:#fff}
+  .io{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  .io > div{border-top:1px solid var(--rule);padding-top:8px}
+  .cores{display:grid;grid-template-columns:repeat(6,1fr);gap:0;border-top:1px solid var(--rule);border-bottom:1px solid var(--hair);margin-top:12px}
+  .cores div{padding:8px 10px 8px 0;font-size:11.5px;line-height:1.3;border-right:1px solid var(--hair);margin-right:10px}
+  .cores div:last-child{border-right:0}
+  .cores div b{display:block;font-family:Georgia,serif;color:var(--navy);font-size:13px;margin-bottom:2px}
+  /* exhibit */
+  .exhibit{border-top:1px solid var(--rule);padding-top:8px}
+  .exhibit .cap{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);font-weight:700}
+  .exhibit .ttl{font-family:Georgia,serif;font-size:15px;margin:2px 0 12px}
+  .bars{display:grid;grid-template-columns:150px 1fr 60px;row-gap:7px;column-gap:10px;align-items:center;font-size:12px}
+  .bars .lab{color:var(--ink2)}
+  .bars .track{height:14px;background:transparent}
+  .bars .fill{height:100%;background:#bdbdbd}
+  .bars .k .fill{background:var(--navy)}
+  .bars .v{text-align:right;font-family:Georgia,serif;font-size:12.5px}
+  .bars .k{color:var(--navy)}
+  .src{font-size:10.5px;color:var(--mute);margin-top:10px;line-height:1.4}
+  .legend{font-size:11px;color:var(--ink2);margin-top:8px}
+  .legend i{display:inline-block;width:12px;height:8px;margin-right:6px;vertical-align:middle}
+  /* three issues */
+  .issue{border-top:1px solid var(--rule);padding-top:8px}
+  .issue .lead{font-family:Georgia,serif;font-size:15px;line-height:1.35;margin:4px 0 8px}
+  .issue .lead .n{color:var(--navy)}
+  .issue .prob{color:var(--ink2);font-style:italic;margin-bottom:8px}
+  .issue li{font-size:12.5px}
+  .box{border:1px solid var(--ink);padding:12px 14px}
+  .box h3{color:var(--ink)}
+  .foot{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--rule);padding-top:8px;font-size:10.5px;color:var(--mute)}
+  .foot .pg{font-family:Georgia,serif;color:var(--ink)}
 </style>
 </head>
 <body class="ja">
 <div id="lang"><button data-l="ja" class="on">日本語</button><button data-l="en">English</button></div>
 <div id="book">
 
-<!-- 1 Who we are -->
+<!-- PAGE 1 -->
 <section class="page">
-  <header class="mast"><div class="brand">Keiji AI<small>DIA Japan 2026</small></div><div class="step"><b>1</b>/ 4 · <span class="ja">私たちについて</span><span class="en">Who we are</span></div></header>
-  <div class="body" style="grid-template-rows:auto 1fr">
-    <h1 class="rv"><span class="ja">製薬企業の臨床薬理・生物統計チームのための AI 解析ワークフロー<span class="sub">日米の研究チームが、製薬パートナーと共同開発。</span></span>
-        <span class="en">AI analysis workflows for clinical pharmacology and biostatistics teams in pharma<span class="sub">Built by a US–Japan research team, co-developed with pharma partners.</span></span></h1>
-    <div class="orig">
-      <div class="nodes rv"><svg viewBox="0 0 520 250">
-        <path class="link" d="M90 120 C 180 40, 330 40, 430 110" fill="none"/>
-        <path class="link" d="M90 120 C 200 200, 330 200, 430 110" fill="none"/>
-        <circle cx="90" cy="120" r="12"/><circle cx="430" cy="110" r="12"/><circle cx="300" cy="196" r="9"/>
-        <text class="lbl" x="18" y="160">UIUC</text><text class="sm" x="18" y="178">Illinois, USA</text>
-        <text class="lbl" x="370" y="80">大阪大学</text><text class="sm" x="370" y="98">Osaka University</text>
-        <text class="lbl" x="230" y="232">京都大学 · Kyoto University</text>
-        <text class="lbl" x="200" y="128" fill="#1e3a8a" style="font-size:17px">Keiji AI</text><text class="sm" x="200" y="146">US HQ · Keiji AI Japan</text>
-      </svg></div>
-      <div style="display:grid;gap:14px">
-        <div class="card rv"><h3><span class="ja">創業チーム</span><span class="en">Founding team</span></h3>
-          <div class="big">UIUC · <span class="ja">大阪大学 · 京都大学</span><span class="en">Osaka University · Kyoto University</span></div>
-          <p class="ja">AI 研究者と臨床データ解析の実務者が同じチームに。</p><p class="en">AI researchers and clinical data analysts in one team.</p></div>
-        <div class="card rv"><h3><span class="ja">共同開発パートナー</span><span class="en">Co-development partners</span></h3>
-          <div class="pills"><span>Pfizer</span><span>AstraZeneca</span><span>Takeda</span><span>Garden Health</span></div></div>
-        <div class="card rv"><h3>Keiji AI Japan</h3>
-          <div class="big"><span class="ja">日本の製薬企業との共同開発と導入支援。日本語で対応。</span><span class="en">Co-development and deployment support for Japanese pharma, in Japanese.</span></div></div>
-      </div>
-    </div>
-  </div>
-  <footer class="foot"><span>Keiji AI · keiji.ai</span><span><span class="ja">下にスクロール ↓</span><span class="en">Scroll down ↓</span></span></footer>
-</section>
+  <header class="mast"><span><b>Keiji AI</b>　Briefing　·　DIA Japan 2026</span><span>Keiji AI Japan　·　October 2026</span></header>
 
-<!-- 2 Where we sit -->
-<section class="page">
-  <header class="mast"><div class="brand">Keiji AI<small>DIA Japan 2026</small></div><div class="step"><b>2</b>/ 4 · <span class="ja">臨床試験のどこに入るか</span><span class="en">Where we sit</span></div></header>
-  <div class="body" style="grid-template-rows:auto auto auto;align-content:center;gap:28px">
-    <h1 class="rv"><span class="ja">ADaM を入れると、レビュー可能な報告書が出てくる<span class="sub">解析フェーズを担当。前後の工程はそのまま。</span></span>
-        <span class="en">ADaM in, reviewable report out<span class="sub">We cover the analysis phase. Everything before and after stays as it is.</span></span></h1>
-    <div class="chain">
-      <div class="st"><b>Protocol</b><span class="ja">試験計画</span><span class="en">Study design</span></div>
-      <div class="st"><b>EDC / SDTM</b><span class="ja">データ収集</span><span class="en">Data collection</span></div>
-      <div class="st"><b>ADaM</b><span class="ja">解析用データ</span><span class="en">Analysis datasets</span></div>
-      <div class="st us"><b>Keiji AI</b><span class="ja">PK/PD · ER · QC · 報告</span><span class="en">PK/PD · ER · QC · reporting</span></div>
-      <div class="st"><b>CSR</b><span class="ja">申請（PMDA / FDA）</span><span class="en">Submission (PMDA / FDA)</span></div>
-    </div>
-    <div class="io">
-      <div class="card rv"><h3><span class="ja">入力</span><span class="en">Input</span></h3>
-        <ul><li><span class="ja">ADaM データセット（ADSL, ADPC, ADEX, ADAE, ADRESP …）</span><span class="en">ADaM datasets (ADSL, ADPC, ADEX, ADAE, ADRESP …)</span></li>
-            <li><span class="ja">プロトコル、既存の PopPK 出力</span><span class="en">Protocol, existing PopPK output</span></li>
-            <li><span class="ja">貴社の報告書テンプレート</span><span class="en">Your report templates</span></li></ul></div>
-      <div class="card rv"><h3><span class="ja">出力</span><span class="en">Output</span></h3>
-        <ul><li><span class="ja">データサマリーと QC 所見台帳</span><span class="en">Data summary and QC findings ledger</span></li>
-            <li><span class="ja">PK/PD 図、曝露指標、ER 統計モデル</span><span class="en">PK/PD figures, exposure metrics, ER statistical models</span></li>
-            <li><span class="ja">レビュー用報告書（Word / PDF）と監査証跡</span><span class="en">Reviewer-facing report (Word / PDF) and audit trail</span></li></ul></div>
-    </div>
-  </div>
-  <footer class="foot"><span>Keiji AI · keiji.ai</span><span>2 / 4</span></footer>
-</section>
+  <div class="grid" style="grid-template-rows:auto auto 1fr;gap:22px">
+    <h1>
+      <span class="ja">ADaM から報告書まで。解析ワークフローをエージェントが実行し、人が確定する。<span class="sub">製薬企業の臨床薬理・生物統計チームのための AI 解析ワークフロー。汎用 LLM の呼び出しではなく、臨床薬理と生物統計の判断基準を組み込んだワークフローとして提供する。曝露–反応（ER）、PK/PD、データ品質 QC を一本で。</span></span>
+      <span class="en">From ADaM to report. The agent runs the analysis workflow; the analyst confirms it.<span class="sub">AI analysis workflows for clinical pharmacology and biostatistics teams in pharma. Not a wrapper around a general LLM, but a workflow that carries clinical-pharmacology and biostatistics judgment. Exposure–response, PK/PD and data-quality QC in one.</span></span>
+    </h1>
 
-<!-- 3 What we solve -->
-<section class="page">
-  <header class="mast"><div class="brand">Keiji AI<small>DIA Japan 2026</small></div><div class="step"><b>3</b>/ 4 · <span class="ja">何を解決するか</span><span class="en">What we solve</span></div></header>
-  <div class="body" style="grid-template-rows:auto 1fr">
-    <h1 class="rv"><span class="ja">社内で AI を進めるときに止まる、3 つの論点<span class="sub">「LLM を呼ぶだけ」では越えられない壁に、設計で答える。</span></span>
-        <span class="en">Three points where in-house AI stalls<span class="sub">Walls a plain LLM cannot cross. We answer each by design.</span></span></h1>
-    <div class="solve">
-      <div style="display:grid;gap:12px;align-content:start">
-        <div class="pa rv"><div class="tag">A</div>
-          <div class="q"><span class="ja">臨床データを外部 AI に渡せない。社内テンプレートを AI は知らない。</span><span class="en">Clinical data cannot leave. Generic AI knows nothing of your templates.</span></div>
-          <div class="a"><span class="ja">貴社環境内で実行。テンプレートはスキルに。全所見に根拠。</span><span class="en">Runs inside your environment. Templates become skills. Every finding carries evidence.</span></div></div>
-        <div class="pa rv"><div class="tag">B</div>
-          <div class="q"><span class="ja">LLM のコードは毎回違い、数値を作ってしまう。</span><span class="en">LLM code differs every run and invents numbers.</span></div>
-          <div class="a"><span class="ja">数値はバージョン固定の R が計算。同じ入力は同じ出力。</span><span class="en">Version-frozen R computes. Same input, same output.</span></div></div>
-        <div class="pa rv"><div class="tag">C</div>
-          <div class="q"><span class="ja">担当者で結果が違う。ベテランの判断は新人に引き継がれない。</span><span class="en">Results depend on the analyst. Senior judgment never reaches juniors.</span></div>
-          <div class="a"><span class="ja">ベテランの判断基準をワークフローに。誰が実行しても同じ水準。</span><span class="en">Senior judgment built in. Same standard for every analyst.</span></div></div>
+    <div class="stats">
+      <div class="stat"><div class="v">3</div><div class="l"><span class="ja">創業チームの出身大学：UIUC、大阪大学、京都大学</span><span class="en">universities behind the founding team: UIUC, Osaka, Kyoto</span></div></div>
+      <div class="stat"><div class="v">4</div><div class="l"><span class="ja">共同開発パートナー：Pfizer、AstraZeneca、Takeda、Garden Health</span><span class="en">co-development partners: Pfizer, AstraZeneca, Takeda, Garden Health</span></div></div>
+      <div class="stat"><div class="v">6</div><div class="l"><span class="ja">コア機能：データ把握から報告まで、ワークフロー順に</span><span class="en">core functions, from data characterisation to reporting</span></div></div>
+      <div class="stat"><div class="v">0</div><div class="l"><span class="ja">エージェントが生成する数値。すべて R が計算する</span><span class="en">numbers generated by the agent. Every number is computed in R</span></div></div>
+    </div>
+
+    <div class="grid g-5-7">
+      <div>
+        <h2><span class="n">1.</span><span class="ja">チームと共同開発パートナー</span><span class="en">Team and co-development partners</span></h2>
+        <table>
+          <tr><td class="k"><span class="ja">創業チーム</span><span class="en">Founding team</span></td><td><span class="ja">UIUC、大阪大学、京都大学の出身。AI 研究者と臨床データ解析の実務者が同じチームにいる。</span><span class="en">From UIUC, Osaka University and Kyoto University. AI researchers and clinical data-analysis practitioners in one team.</span></td></tr>
+          <tr><td class="k"><span class="ja">専門領域</span><span class="en">Disciplines</span></td><td><span class="ja">機械学習と LLM エージェント、臨床薬理とファーマコメトリクス、生物統計、ソフトウェア工学とセキュリティ。</span><span class="en">Machine learning and LLM agents; clinical pharmacology and pharmacometrics; biostatistics; software engineering and security.</span></td></tr>
+          <tr><td class="k"><span class="ja">拠点</span><span class="en">Locations</span></td><td><span class="ja">米国本社と Keiji AI Japan。日本拠点は日本の製薬企業との共同開発と導入支援を担い、日本語で対応する。</span><span class="en">US headquarters and Keiji AI Japan. The Japan office handles co-development and deployment support for Japanese pharma, in Japanese.</span></td></tr>
+          <tr><td class="k"><span class="ja">共同開発</span><span class="en">Co-development</span></td><td><span class="names">Pfizer · AstraZeneca · Takeda · Garden Health</span><br><span class="ja">実際の試験データと報告テンプレートに基づいて共同開発。</span><span class="en">Built on partners' real study data and report templates.</span></td></tr>
+        </table>
       </div>
-      <div class="chart rv">
-        <h3><span class="ja">1 試験の ER 解析にかかる工数（イメージ）</span><span class="en">Effort per ER analysis, one study (illustrative)</span></h3>
-        <div class="bars">
-          <div class="bar"><span class="ja">データ整備・QC</span><span class="en">Wrangling and QC</span><div class="track"><div class="fill" style="--w:100%"></div></div><span class="v ja">数週間</span><span class="v en">weeks</span></div>
-          <div class="bar k"><span class="ja">　Keiji AI</span><span class="en">　with Keiji AI</span><div class="track"><div class="fill" style="--w:18%"></div></div><span class="v ja">数日</span><span class="v en">days</span></div>
-          <div class="bar"><span class="ja">作図・モデル・報告書</span><span class="en">Figures, models, report</span><div class="track"><div class="fill" style="--w:85%"></div></div><span class="v ja">数週間</span><span class="v en">weeks</span></div>
-          <div class="bar k"><span class="ja">　Keiji AI</span><span class="en">　with Keiji AI</span><div class="track"><div class="fill" style="--w:12%"></div></div><span class="v ja">数日</span><span class="v en">days</span></div>
-          <div class="bar"><span class="ja">レビューと解釈</span><span class="en">Review and interpretation</span><div class="track"><div class="fill" style="--w:45%"></div></div><span class="v ja">数日</span><span class="v en">days</span></div>
-          <div class="bar k"><span class="ja">　Keiji AI</span><span class="en">　with Keiji AI</span><div class="track"><div class="fill" style="--w:45%"></div></div><span class="v ja">数日</span><span class="v en">days</span></div>
+      <div>
+        <h2><span class="n">2.</span><span class="ja">臨床試験のどこに入るか：入力と出力</span><span class="en">Where we sit in the trial chain: input and output</span></h2>
+        <div class="chain">
+          <div class="st"><b>Protocol</b><span class="ja">試験計画</span><span class="en">Study design</span></div>
+          <div class="st"><b>EDC / SDTM</b><span class="ja">データ収集・標準化</span><span class="en">Collection, standardisation</span></div>
+          <div class="st"><b>ADaM</b><span class="ja">解析用データ</span><span class="en">Analysis datasets</span></div>
+          <div class="st us"><b>Keiji AI</b><span class="ja">PK/PD・ER・QC 解析と報告</span><span class="en">PK/PD, ER, QC analysis and reporting</span></div>
+          <div class="st"><b>CSR</b><span class="ja">申請（PMDA・FDA）</span><span class="en">Submission (PMDA, FDA)</span></div>
         </div>
-        <div class="legend"><i style="background:var(--mute)"></i><span class="ja">現状の手作業</span><span class="en">Manual today</span>　<i style="background:var(--blue)"></i><span class="ja">Keiji AI 導入後。人はレビューと解釈に集中</span><span class="en">With Keiji AI; people focus on review and interpretation</span></div>
-        <div class="note"><span class="ja">パイロットで貴社の実測値に置き換えます。</span><span class="en">Replaced with your measured figures during the pilot.</span></div>
+        <div class="io">
+          <div><h3><span class="ja">入力</span><span class="en">Input</span></h3>
+            <ul><li><span class="ja">ADaM データセット（ADSL, ADPC, ADEX, ADAE, ADRESP, ADTTE …）をそのまま</span><span class="en">ADaM datasets as delivered (ADSL, ADPC, ADEX, ADAE, ADRESP, ADTTE …)</span></li>
+                <li><span class="ja">プロトコル、SAP、既存の PopPK モデル出力</span><span class="en">Protocol, SAP, existing PopPK model output</span></li>
+                <li><span class="ja">貴社の報告書テンプレートと解析ルール</span><span class="en">Your report templates and analysis conventions</span></li></ul></div>
+          <div><h3><span class="ja">出力</span><span class="en">Output</span></h3>
+            <ul><li><span class="ja">データサマリー、QC 所見台帳（証拠・影響・選択肢付き）</span><span class="en">Data summary; QC findings ledger with evidence, impact and options</span></li>
+                <li><span class="ja">PK/PD 図、曝露指標、ER 統計モデル（ロジスティック、Cox、NCA）</span><span class="en">PK/PD figures, exposure metrics, ER statistical models (logistic, Cox, NCA)</span></li>
+                <li><span class="ja">レビュー用報告書（Word / PDF）と、全判断の監査証跡</span><span class="en">Reviewer-facing report (Word / PDF) and an audit trail of every decision</span></li></ul></div>
+        </div>
+        <div class="cores">
+          <div><b>01</b><span class="ja">データ把握と品質確認</span><span class="en">Data characterisation and QC</span></div>
+          <div><b>02</b><span class="ja">個別・群別 PK/PD 確認</span><span class="en">Individual and grouped PK/PD</span></div>
+          <div><b>03</b><span class="ja">曝露指標の算出</span><span class="en">Exposure metrics</span></div>
+          <div><b>04</b><span class="ja">曝露–反応の探索</span><span class="en">ER exploration</span></div>
+          <div><b>05</b><span class="ja">統計モデリング</span><span class="en">Statistical modelling</span></div>
+          <div><b>06</b><span class="ja">報告と解釈</span><span class="en">Reporting and interpretation</span></div>
+        </div>
       </div>
     </div>
   </div>
-  <footer class="foot"><span>Keiji AI · keiji.ai</span><span>3 / 4</span></footer>
+
+  <footer class="foot"><span><span class="ja">注：本資料の数値例はすべて模擬データ（Mock01）に基づく。</span><span class="en">Note: all worked examples use mock data (Mock01).</span></span><span class="pg">1 / 2</span></footer>
 </section>
 
-<!-- 4 Security & start -->
+<!-- PAGE 2 -->
 <section class="page">
-  <header class="mast"><div class="brand">Keiji AI<small>DIA Japan 2026</small></div><div class="step"><b>4</b>/ 4 · <span class="ja">セキュリティと導入</span><span class="en">Security and getting started</span></div></header>
-  <div class="body" style="grid-template-rows:auto auto;align-content:center;gap:28px">
-    <h1 class="rv"><span class="ja">臨床データは貴社の中に。導入は 1 試験のパイロットから<span class="sub">認証と契約で守り、模擬データで一周してから本番へ。</span></span>
-        <span class="en">Clinical data stays with you. Start with a one-study pilot<span class="sub">Protected by certification and contract; one full run on mock data before production.</span></span></h1>
-    <div class="sec">
-      <div class="card rv"><h3><span class="ja">認証・保護</span><span class="en">Certification and safeguards</span></h3>
-        <div class="shields">
-          <div class="shield"><span class="ok">✓</span><b>ISO/IEC 27001</b><span>2022 · <span class="ja">認証</span><span class="en">certified</span></span></div>
-          <div class="shield"><span class="ok">✓</span><b>SOC 2 Type II</b><span class="ja">監査完了</span><span class="en">audited</span></div>
-          <div class="shield"><span class="ok">✓</span><b>HIPAA</b><span class="ja">readiness 完了 · BAA 可</span><span class="en">readiness done · BAA available</span></div>
+  <header class="mast"><span><b>Keiji AI</b>　Briefing　·　DIA Japan 2026</span><span><span class="ja">社内 AI 推進・導入で、何を解決するか</span><span class="en">What we solve for in-house AI adoption</span></span></header>
+
+  <div class="grid" style="grid-template-rows:auto 1fr;gap:22px">
+    <h1 style="font-size:26px"><span class="ja">製薬企業が AI を社内に入れるときに止まる三つの論点と、Keiji AI の答え<span class="sub">「LLM を呼ぶだけ」では越えられない壁は、幻覚、非再現性、出所不明、統計を実行できないこと、生データの流出である。それぞれに設計で答える。</span></span>
+        <span class="en">Three points where in-house AI stalls in pharma, and how Keiji AI answers each<span class="sub">A plain LLM cannot cross five walls: hallucination, non-reproducibility, missing provenance, inability to run statistics, and raw-data exposure. Each is answered by design.</span></span></h1>
+
+    <div class="grid g-7-5">
+      <div class="grid g-3" style="gap:24px">
+        <div class="issue">
+          <h3>A</h3>
+          <div class="lead"><span class="ja">データ・テンプレート・文書のコンプライアンス</span><span class="en">Data, template and document compliance</span></div>
+          <p class="prob"><span class="ja">臨床データを外部の AI に渡せない。社内テンプレートを汎用 AI は知らない。AI が書いた文書の根拠を監査で示せない。</span><span class="en">Clinical data cannot go to an external AI. A general AI knows nothing of your templates. Auditors cannot trace what it wrote.</span></p>
+          <ul><li><span class="ja">解析は貴社の解析環境内で実行（例：Domino、オンプレミス）。モデルが見るのは構造と要約、計算は環境内の R。</span><span class="en">Analysis runs inside your environment (e.g. Domino, on-premises). The model sees structure and summaries; computation runs in R inside.</span></li>
+              <li><span class="ja">貴社テンプレートをスキルとして取り込み、報告書はその章立てで生成。</span><span class="en">Your templates are encoded as skills; reports follow your chapter order.</span></li>
+              <li><span class="ja">すべての所見が、生成したステップ・データ・R コードを指す。</span><span class="en">Every finding names its step, data and R code.</span></li></ul>
         </div>
-        <p style="margin-top:12px"><span class="ja">AES-256、TLS 1.2 以上、MFA、最小権限。解析は貴社の解析環境内で実行。認証資料は NDA のもとで提供。</span><span class="en">AES-256, TLS 1.2+, MFA, least privilege. Analysis runs inside your environment. Audit materials under NDA.</span></p></div>
-      <div class="card rv"><h3><span class="ja">導入の進め方</span><span class="en">How we start</span></h3>
-        <ul class="tl">
-          <li><b><span class="ja">パイロット</span><span class="en">Pilot</span></b><span class="ja">模擬または過去の 1 試験で、ADaM から報告書まで一周</span><span class="en">One mock or historical study, ADaM to report</span></li>
-          <li><b><span class="ja">テンプレート適合</span><span class="en">Template fit</span></b><span class="ja">貴社の報告書テンプレートと解析ルールをスキルに</span><span class="en">Your report templates and conventions become skills</span></li>
-          <li><b><span class="ja">環境内導入</span><span class="en">Deploy inside</span></b><span class="ja">貴社の解析環境へ（例：Domino、オンプレミス）</span><span class="en">Into your analysis environment (e.g. Domino, on-premises)</span></li>
-          <li><b><span class="ja">契約</span><span class="en">Contract</span></b><span class="ja">案件ごとにデータ処理契約と BAA を確認</span><span class="en">Data-processing agreement and BAA per project</span></li>
-        </ul></div>
+        <div class="issue">
+          <h3>B</h3>
+          <div class="lead"><span class="ja">生成コードの品質と安定性</span><span class="en">Code-generation quality and stability</span></div>
+          <p class="prob"><span class="ja">LLM に書かせた解析コードは毎回違う。数値を作ってしまう。検証にかかる時間が、自分で書く時間を上回る。</span><span class="en">LLM-written analysis code differs every run. It invents numbers. Validating it takes longer than writing it.</span></p>
+          <ul><li><span class="ja">エージェントは結果を生成しない。数値はバージョン固定の R ツールが計算し、エージェントは対応付けと手法の選択だけを担う。</span><span class="en">The agent never generates results. Version-frozen R tools compute; the agent only maps data and selects methods.</span></li>
+              <li><span class="ja">各ステップを仕様、コード、出力、バージョンで固定。同じ入力は同じ出力。</span><span class="en">Each step is frozen as spec, code, output and version. Same input, same output.</span></li>
+              <li><span class="ja">決定論的ステップにはモデルを呼ばない。判断が必要な箇所だけ、根拠と確信度を付けて呼ぶ。</span><span class="en">Deterministic steps make no model call; judgment points do, with basis and confidence.</span></li></ul>
+        </div>
+        <div class="issue">
+          <h3>C</h3>
+          <div class="lead"><span class="ja">人材育成と生産性</span><span class="en">Training people and accelerating delivery</span></div>
+          <p class="prob"><span class="ja">担当者によって結果が違う。ベテランの判断は属人化し、新人に引き継がれない。試験ごとにゼロから作り直す。</span><span class="en">Results depend on who did the work. Senior judgment stays in senior heads. Every study starts from zero.</span></p>
+          <ul><li><span class="ja">ベテランの判断基準（曝露指標の選び方、AE 時間の扱い、モデルの採否）をワークフローに組み込み、誰が実行しても同じ水準に。</span><span class="en">Senior judgment (exposure metric, AE timing, when to fit or skip a model) is built into the workflow, so every analyst delivers the same standard.</span></li>
+              <li><span class="ja">各判断に根拠が付くため、新人はワークフローを回しながら理由を学ぶ。</span><span class="en">Every decision shows its basis, so junior staff learn the reasoning while delivering.</span></li>
+              <li><span class="ja">データ整備、QC、作図、報告書の定型作業を自動化し、人はレビューと解釈に集中する。</span><span class="en">Routine wrangling, QC, plotting and report assembly are automated; people focus on review and interpretation.</span></li></ul>
+        </div>
+      </div>
+
+      <div style="display:grid;gap:18px;align-content:start">
+        <div class="exhibit">
+          <div class="cap">Exhibit 1</div>
+          <div class="ttl"><span class="ja">1 試験の ER 解析に要する工数の配分（概念図）</span><span class="en">Where effort goes in one study's ER analysis (conceptual)</span></div>
+          <div class="bars">
+            <div class="lab"><span class="ja">データ整備と QC</span><span class="en">Wrangling and QC</span></div><div class="track"><div class="fill" style="width:100%"></div></div><div class="v"><span class="ja">数週間</span><span class="en">weeks</span></div>
+            <div class="lab k"><span class="ja">　導入後</span><span class="en">　with Keiji AI</span></div><div class="track k"><div class="fill" style="width:18%"></div></div><div class="v k"><span class="ja">数日</span><span class="en">days</span></div>
+            <div class="lab"><span class="ja">作図、モデル、報告書</span><span class="en">Figures, models, report</span></div><div class="track"><div class="fill" style="width:85%"></div></div><div class="v"><span class="ja">数週間</span><span class="en">weeks</span></div>
+            <div class="lab k"><span class="ja">　導入後</span><span class="en">　with Keiji AI</span></div><div class="track k"><div class="fill" style="width:12%"></div></div><div class="v k"><span class="ja">数日</span><span class="en">days</span></div>
+            <div class="lab"><span class="ja">レビューと解釈</span><span class="en">Review and interpretation</span></div><div class="track"><div class="fill" style="width:45%"></div></div><div class="v"><span class="ja">数日</span><span class="en">days</span></div>
+            <div class="lab k"><span class="ja">　導入後</span><span class="en">　with Keiji AI</span></div><div class="track k"><div class="fill" style="width:45%"></div></div><div class="v k"><span class="ja">数日</span><span class="en">days</span></div>
+          </div>
+          <div class="legend"><i style="background:#bdbdbd"></i><span class="ja">現状の手作業</span><span class="en">Manual today</span>　　<i style="background:var(--navy)"></i><span class="ja">Keiji AI 導入後</span><span class="en">With Keiji AI</span></div>
+          <div class="src"><span class="ja">注：概念図。パイロットで貴社の実測値に置き換える。レビューと解釈の工数は変わらず、人はそこに集中する。</span><span class="en">Note: conceptual; replaced with your measured figures during the pilot. Review and interpretation effort is unchanged and becomes where people spend their time.</span></div>
+        </div>
+        <div class="box">
+          <h3><span class="ja">セキュリティとコンプライアンス</span><span class="en">Security and compliance</span></h3>
+          <ul><li><span class="ja">ISO/IEC 27001:2022 認証。SOC 2 Type II 監査完了。HIPAA readiness assessment 完了、BAA 締結可。</span><span class="en">ISO/IEC 27001:2022 certified. SOC 2 Type II audited. HIPAA readiness assessment completed; BAA available.</span></li>
+              <li><span class="ja">保存時 AES-256、通信時 TLS 1.2 以上、MFA、最小権限。案件ごとに導入形態、データ処理契約、BAA を確認。認証資料は NDA のもとで提供。</span><span class="en">AES-256 at rest, TLS 1.2+ in transit, MFA, least privilege. Per project: deployment model, data-processing agreement, BAA. Audit materials under NDA.</span></li></ul>
+          <h3 style="margin-top:10px"><span class="ja">導入の進め方</span><span class="en">How we start</span></h3>
+          <p style="margin:0"><span class="ja">模擬または過去の 1 試験で ADaM から報告書まで一周するパイロットから始め、貴社テンプレートへの適合を共同で進める。</span><span class="en">A pilot on one mock or historical study, ADaM to report; fit to your templates is done together.</span></p>
+        </div>
+      </div>
     </div>
   </div>
-  <footer class="foot"><span>Keiji AI Japan · <span class="ja">ブースでライブデモをご覧ください。名刺をお渡しします。</span><span class="en">Ask for a live demo at the booth. We hand out business cards.</span></span><span>4 / 4</span></footer>
+
+  <footer class="foot"><span>Keiji AI Japan　·　<span class="ja">ブースでライブデモをご覧ください。名刺をお渡しします。</span><span class="en">Ask for a live demo at the booth. We hand out business cards.</span></span><span class="pg">2 / 2</span></footer>
 </section>
 
 </div>
@@ -231,9 +221,6 @@
   var btns=document.querySelectorAll('#lang button');
   function set(l){document.body.className=l;document.documentElement.lang=l;btns.forEach(function(b){b.classList.toggle('on',b.dataset.l===l)});}
   btns.forEach(function(b){b.addEventListener('click',function(){set(b.dataset.l)})});
-  var pages=document.querySelectorAll('.page');
-  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)e.target.classList.add('in');else e.target.classList.remove('in');})},{threshold:.5});
-  pages.forEach(function(p){io.observe(p)}); pages[0].classList.add('in');
   var book=document.getElementById('book'),t;
   function arm(){clearTimeout(t);t=setTimeout(function(){book.scrollTo({top:0,behavior:'smooth'});set('ja')},180000);}
   ['touchstart','pointerdown','scroll','keydown'].forEach(function(ev){document.addEventListener(ev,arm,{passive:true})});arm();
