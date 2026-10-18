@@ -62,7 +62,7 @@
   /* exhibit */
   .exhibit{border-top:1px solid var(--rule);padding-top:8px}
   .exhibit .cap{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);font-weight:700}
-  .exhibit .ttl{font-family:Georgia,serif;font-size:15px;margin:2px 0 12px}
+  .exhibit .ttl{font-family:Georgia,serif;font-size:15px;margin:2px 0 8px}
   .bars{display:grid;grid-template-columns:150px 1fr 60px;row-gap:7px;column-gap:10px;align-items:center;font-size:12px}
   .bars .lab{color:var(--ink2)}
   .bars .track{height:14px;background:transparent}
@@ -70,7 +70,9 @@
   .bars .k .fill{background:var(--navy)}
   .bars .v{text-align:right;font-family:Georgia,serif;font-size:12.5px}
   .bars .k{color:var(--navy)}
-  .src{font-size:10.5px;color:var(--mute);margin-top:10px;line-height:1.4}
+  table.facts td{padding:4px 8px 4px 0;font-size:12px;line-height:1.4}
+  table.facts td.k{width:34%}
+  .src{font-size:10.5px;color:var(--mute);margin-top:6px;line-height:1.4}
   .legend{font-size:11px;color:var(--ink2);margin-top:8px}
   .legend i{display:inline-block;width:12px;height:8px;margin-right:6px;vertical-align:middle}
   /* three issues */
@@ -79,7 +81,7 @@
   .issue .lead .n{color:var(--navy)}
   .issue .prob{color:var(--ink2);font-style:italic;margin-bottom:8px}
   .issue li{font-size:12.5px}
-  .box{border:1px solid var(--ink);padding:12px 14px}
+  .box{border:1px solid var(--ink);padding:10px 12px;font-size:12.5px}
   .box h3{color:var(--ink)}
   .foot{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--rule);padding-top:8px;font-size:10.5px;color:var(--mute)}
   .foot .pg{font-family:Georgia,serif;color:var(--ink)}
@@ -186,20 +188,18 @@
         </div>
       </div>
 
-      <div style="display:grid;gap:18px;align-content:start">
+      <div style="display:grid;gap:12px;align-content:start">
         <div class="exhibit">
           <div class="cap">Exhibit 1</div>
-          <div class="ttl"><span class="ja">1 試験の ER 解析に要する工数の配分（概念図）</span><span class="en">Where effort goes in one study's ER analysis (conceptual)</span></div>
-          <div class="bars">
-            <div class="lab"><span class="ja">データ整備と QC</span><span class="en">Wrangling and QC</span></div><div class="track"><div class="fill" style="width:100%"></div></div><div class="v"><span class="ja">数週間</span><span class="en">weeks</span></div>
-            <div class="lab k"><span class="ja">　導入後</span><span class="en">　with Keiji AI</span></div><div class="track k"><div class="fill" style="width:18%"></div></div><div class="v k"><span class="ja">数日</span><span class="en">days</span></div>
-            <div class="lab"><span class="ja">作図、モデル、報告書</span><span class="en">Figures, models, report</span></div><div class="track"><div class="fill" style="width:85%"></div></div><div class="v"><span class="ja">数週間</span><span class="en">weeks</span></div>
-            <div class="lab k"><span class="ja">　導入後</span><span class="en">　with Keiji AI</span></div><div class="track k"><div class="fill" style="width:12%"></div></div><div class="v k"><span class="ja">数日</span><span class="en">days</span></div>
-            <div class="lab"><span class="ja">レビューと解釈</span><span class="en">Review and interpretation</span></div><div class="track"><div class="fill" style="width:45%"></div></div><div class="v"><span class="ja">数日</span><span class="en">days</span></div>
-            <div class="lab k"><span class="ja">　導入後</span><span class="en">　with Keiji AI</span></div><div class="track k"><div class="fill" style="width:45%"></div></div><div class="v k"><span class="ja">数日</span><span class="en">days</span></div>
-          </div>
-          <div class="legend"><i style="background:#bdbdbd"></i><span class="ja">現状の手作業</span><span class="en">Manual today</span>　　<i style="background:var(--navy)"></i><span class="ja">Keiji AI 導入後</span><span class="en">With Keiji AI</span></div>
-          <div class="src"><span class="ja">注：概念図。パイロットで貴社の実測値に置き換える。レビューと解釈の工数は変わらず、人はそこに集中する。</span><span class="en">Note: conceptual; replaced with your measured figures during the pilot. Review and interpretation effort is unchanged and becomes where people spend their time.</span></div>
+          <div class="ttl"><span class="ja">模擬データ 1 試験に対する 1 回の実行で生成されたもの</span><span class="en">What one run produced on one mock study</span></div>
+          <table class="facts">
+            <tr><td class="k"><span class="ja">入力</span><span class="en">Input</span></td><td><span class="ja">ADaM 8 テーブル、69 例、2 用量群</span><span class="en">8 ADaM tables, 69 subjects, 2 dose groups</span></td></tr>
+            <tr><td class="k"><span class="ja">データ品質 QC</span><span class="en">Data QC</span></td><td><span class="ja">所見 44 件。各件に証拠・影響・選択肢・R ルール</span><span class="en">44 findings, each with evidence, impact, options and the R rule</span></td></tr>
+            <tr><td class="k"><span class="ja">曝露指標</span><span class="en">Exposure metrics</span></td><td><span class="ja">8 指標（Cycle 1 AUC / Cmax、Cave など）、既存 PopPK 出力を再利用</span><span class="en">8 metrics (Cycle 1 AUC / Cmax, Cave …), reusing the existing PopPK output</span></td></tr>
+            <tr><td class="k"><span class="ja">統計モデル</span><span class="en">Statistical models</span></td><td><span class="ja">221 モデル。212 を実行、9 は理由付きでスキップ</span><span class="en">221 models; 212 fitted, 9 skipped with a stated reason</span></td></tr>
+            <tr><td class="k"><span class="ja">報告書</span><span class="en">Report</span></td><td><span class="ja">レビュー用報告書 1 本。全所見が根拠のステップを明記</span><span class="en">1 reviewer-facing report; every finding names its evidence step</span></td></tr>
+          </table>
+          <div class="src"><span class="ja">出典：Keiji AI、模擬データ Mock01 に対する記録済み実行（2026 年 10 月 8 日）。ブースのデモで同じ実行を閲覧できる。</span><span class="en">Source: Keiji AI recorded run on the Mock01 mock dataset, 8 October 2026. The same run is on the booth demo.</span></div>
         </div>
         <div class="box">
           <h3><span class="ja">セキュリティとコンプライアンス</span><span class="en">Security and compliance</span></h3>
