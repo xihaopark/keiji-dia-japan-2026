@@ -85,16 +85,16 @@
   .cores div b{display:block;color:var(--navy);font-size:11px;margin-bottom:2px;font-weight:700}
   .strip,.manga{width:100%;height:auto;display:block}
   .manga{width:100%;height:auto;border:1px solid var(--hair);display:block}
-  .mg{display:grid;grid-template-columns:minmax(0,1fr) 220px;gap:18px;align-items:start}
+  .mg{display:grid;grid-template-columns:minmax(0,1fr) 240px;gap:16px;align-items:start}
   /* issues */
-  .legend{display:grid;grid-template-columns:1fr;gap:8px;margin-top:0;font-size:12px;line-height:1.5;color:var(--ink2);align-content:space-between;height:100%}
+  .legend{display:grid;grid-template-columns:1fr;gap:8px;margin-top:0;font-size:13.5px;line-height:1.5;color:var(--ink2);align-content:space-between;height:100%}
   .legend div{display:flex;gap:8px}
   .legend b{flex:0 0 20px;height:20px;border-radius:50%;background:var(--navy);color:#fff;font-size:11px;display:flex;align-items:center;justify-content:center;margin-top:1px}
   .legend strong{color:var(--ink);font-weight:700}
   .issue .lead{font-size:13.5px;font-weight:700;line-height:1.3;margin:2px 0 6px}
   .issue .lead .n{color:var(--navy);margin-right:6px}
-  .issue .prob{color:var(--ink2);margin-bottom:6px;font-size:12.5px;background:#fbf3f2;border-left:3px solid var(--red);padding:7px 9px}
-  .issue li{font-size:12.5px;margin-bottom:3px}
+  .issue .prob{color:var(--ink2);margin-bottom:6px;font-size:13.5px;background:#fbf3f2;border-left:3px solid var(--red);padding:7px 9px}
+  .issue li{font-size:13.5px;margin-bottom:3px}
   /* key takeaways */
   .kt{margin-top:2px}
   .kt .lab .ti{color:var(--navy)}
@@ -102,8 +102,8 @@
   .ktb{background:var(--tile);padding:10px 14px 10px;border-left:3px solid var(--navy)}
   .ktb .h{display:flex;align-items:baseline;gap:10px;margin-bottom:5px}
   .ktb .h .n{font-size:17px;font-weight:700;color:var(--red)}
-  .ktb .h b{font-size:12.5px}
-  .ktb li{font-size:12px;margin-bottom:3px}
+  .ktb .h b{font-size:14px}
+  .ktb li{font-size:13px;margin-bottom:3px}
   .foot{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--rule);padding-top:7px;font-size:10px;color:var(--mute)}
   .foot .pg{color:var(--ink);letter-spacing:.1em;font-weight:600}
 </style>
@@ -209,24 +209,24 @@
           <span class="en">Three points where in-house AI stalls, and <b>how Keiji AI answers</b></span></h1>
     </div>
 
-    <div class="grid" style="grid-template-columns:4.2fr 7.8fr;gap:24px">
+    <div class="grid" style="grid-template-columns:5fr 7fr;gap:24px">
       <div class="grid" style="grid-template-rows:auto auto auto;gap:9px">
         <div class="issue">
-          <div class="lab" style="margin-bottom:6px"><div><span class="ex">A</span><span class="ti" style="font-size:14px"><span class="ja">データ・テンプレート・文書のコンプライアンス</span><span class="en">Data, template and document compliance</span></span></div></div>
+          <div class="lab" style="margin-bottom:6px"><div><span class="ex">A</span><span class="ti" style="font-size:15px"><span class="ja">データ・テンプレート・文書のコンプライアンス</span><span class="en">Data, template and document compliance</span></span></div></div>
           <p class="prob"><span class="ja">臨床データを外部の AI に渡せない。社内テンプレートを AI は知らない。</span><span class="en">Clinical data cannot leave. A general AI knows nothing of your templates.</span></p>
-          <ul><li><span class="ja">解析は<b>貴社の環境内</b>で実行。計算は環境内の R。</span><span class="en">Runs <b>inside your environment</b>; computation in R inside.</span></li>
+          <ul><li><span class="ja">解析は<b>貴社の環境内</b>で実行。計算は環境内の R。</span><span class="en">Runs <b>inside your environment</b>; R computes inside.</span></li>
               <li><span class="ja">貴社テンプレートをスキルに。全所見が根拠のステップ・データ・R コードを指す。</span><span class="en">Your templates become skills; every finding names its evidence.</span></li></ul>
         </div>
         <div class="issue">
-          <div class="lab" style="margin-bottom:6px"><div><span class="ex">B</span><span class="ti" style="font-size:14px"><span class="ja">生成コードの品質と安定性</span><span class="en">Code-generation quality and stability</span></span></div></div>
+          <div class="lab" style="margin-bottom:6px"><div><span class="ex">B</span><span class="ti" style="font-size:15px"><span class="ja">生成コードの品質と安定性</span><span class="en">Code-generation quality and stability</span></span></div></div>
           <p class="prob"><span class="ja">LLM のコードは毎回違い、数値を作ってしまう。</span><span class="en">LLM code differs every run and invents numbers.</span></p>
           <ul><li><span class="ja">数値は<b>バージョン固定の R</b> が計算。エージェントは対応付けと手法の選択だけ。</span><span class="en"><b>Version-frozen R</b> computes; the agent only maps and selects.</span></li>
-              <li><span class="ja">仕様・コード・出力・バージョンで固定。同じ入力は同じ出力。</span><span class="en">Frozen as spec, code, output, version. Same input, same output.</span></li></ul>
+              <li><span class="ja">仕様・コード・出力・バージョンで固定。同じ入力は同じ出力。</span><span class="en">Frozen as spec, code, output, version.</span></li></ul>
         </div>
         <div class="issue">
-          <div class="lab" style="margin-bottom:6px"><div><span class="ex">C</span><span class="ti" style="font-size:14px"><span class="ja">人材育成と生産性</span><span class="en">Training people and accelerating delivery</span></span></div></div>
+          <div class="lab" style="margin-bottom:6px"><div><span class="ex">C</span><span class="ti" style="font-size:15px"><span class="ja">人材育成と生産性</span><span class="en">Training people and accelerating delivery</span></span></div></div>
           <p class="prob"><span class="ja">担当者で結果が違う。判断は引き継がれない。</span><span class="en">Results depend on who runs the analysis.</span></p>
-          <ul><li><span class="ja"><b>ベテランの判断基準</b>をワークフローに組み込み、誰が実行しても同じ水準。</span><span class="en"><b>Senior judgment</b> built in; the same standard for every analyst.</span></li>
+          <ul><li><span class="ja"><b>ベテランの判断基準</b>をワークフローに組み込み、誰が実行しても同じ水準。</span><span class="en"><b>Senior judgment</b> built in; one standard for all.</span></li>
               <li><span class="ja">定型作業は自動化。人は解釈に集中。</span><span class="en">Routine work automated.</span></li></ul>
         </div>
       </div>
