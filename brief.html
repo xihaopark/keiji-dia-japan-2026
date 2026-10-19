@@ -34,15 +34,15 @@
   .eyebrow{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--red);font-weight:700;margin-bottom:6px}
   h1{margin:0;font-size:31px;line-height:1.2;font-weight:400;letter-spacing:-.01em;max-width:30em}
   h1 b{font-weight:700}
-  .dek{font-size:13px;color:var(--ink2);margin:8px 0 0;max-width:72em;line-height:1.55}
+  .dek{font-size:13.5px;color:var(--ink2);margin:6px 0 0;max-width:72em;line-height:1.5}
   .dek b{color:var(--ink)}
   /* tiles */
   .tiles{display:grid;grid-template-columns:1.25fr 1fr 1fr 1fr;gap:8px;margin-top:4px}
-  .tile{background:var(--tile);padding:10px 12px 9px;border-top:2px solid var(--navy)}
+  .tile{background:var(--tile);padding:8px 12px 7px;border-top:2px solid var(--navy)}
   .tile.hi{background:var(--navy);color:#fff;border-top-color:var(--red)}
   .tile .l{font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--mute);font-weight:600}
   .tile.hi .l{color:#c9d6ee}
-  .tile .v{font-size:26px;font-weight:700;line-height:1.1;margin-top:3px;letter-spacing:-.01em;font-variant-numeric:tabular-nums}
+  .tile .v{font-size:24px;font-weight:700;line-height:1.1;margin-top:3px;letter-spacing:-.01em;font-variant-numeric:tabular-nums}
   .tile .v small{font-size:12px;font-weight:500;margin-left:5px;color:var(--ink2)}
   .tile.hi .v small{color:#c9d6ee}
   .tile .d{font-size:10.5px;color:var(--ink2);margin-top:3px}
@@ -57,21 +57,21 @@
   .lab .ti{font-size:14.5px;font-weight:700}
   .lab .meta{font-size:10px;color:var(--mute);letter-spacing:.02em}
   ul{margin:0;padding:0;list-style:none}
-  li{position:relative;padding-left:13px;margin-bottom:4px;line-height:1.45}
+  li{position:relative;padding-left:13px;margin-bottom:3px;line-height:1.45;font-size:13px}
   li::before{content:"";position:absolute;left:0;top:7px;width:5px;height:5px;background:var(--red)}
   li b{font-weight:700}
-  table{border-collapse:collapse;width:100%;font-size:12px}
-  td{padding:6px 10px 6px 0;border-bottom:1px solid var(--hair);vertical-align:top;line-height:1.45}
+  table{border-collapse:collapse;width:100%;font-size:13px}
+  td{padding:5px 10px 5px 0;border-bottom:1px solid var(--hair);vertical-align:top;line-height:1.45}
   td.k{font-weight:700;white-space:nowrap;padding-right:12px}
   /* logos */
-  .logos{display:grid;grid-template-columns:1fr 1fr;gap:34px;background:var(--tile);padding:10px 16px}
+  .logos{display:grid;grid-template-columns:1fr 1fr;gap:34px;background:var(--tile);padding:8px 16px}
   .logos .l{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);font-weight:600}
   .logos .row{display:flex;align-items:center;gap:22px;flex-wrap:nowrap;margin-top:7px}
   .logos img{display:block;max-width:100%}
   .logos .word{font-weight:700;font-size:15px;color:#1b5e3f;white-space:nowrap;letter-spacing:.01em}
   /* chain */
   .chain{display:flex;align-items:stretch;margin:2px 0 10px}
-  .chain .st{flex:1;background:var(--tile);padding:9px 8px;text-align:center;font-size:11px;line-height:1.3;position:relative;color:var(--ink2)}
+  .chain .st{flex:1;background:var(--tile);padding:8px 8px;text-align:center;font-size:11.5px;line-height:1.3;position:relative;color:var(--ink2)}
   .chain .st+.st{margin-left:14px}
   .chain .st+.st::before{content:"";position:absolute;left:-14px;top:50%;width:14px;border-top:1px solid var(--mute)}
   .chain .st+.st::after{content:"";position:absolute;left:-5px;top:calc(50% - 3px);border:3px solid transparent;border-left:5px solid var(--mute)}
@@ -79,9 +79,9 @@
   .chain .st.us{background:var(--navy);color:#c9d6ee;flex:1.7;box-shadow:inset 0 3px 0 var(--red)}
   .chain .st.us b{color:#fff}
   .io{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-  .io h4{margin:0 0 5px;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);font-weight:600}
+  .io h4{margin:0 0 4px;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);font-weight:600}
   .cores{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin-top:10px}
-  .cores div{background:var(--tile);padding:6px 8px;font-size:10.5px;line-height:1.3;color:var(--ink2)}
+  .cores div{background:var(--tile);padding:6px 8px;font-size:11.5px;line-height:1.3;color:var(--ink2)}
   .cores div b{display:block;color:var(--navy);font-size:11px;margin-bottom:2px;font-weight:700}
   .strip,.manga{width:100%;height:auto;display:block}
   .manga{width:100%;height:auto;border:1px solid var(--hair);display:block}
@@ -120,7 +120,7 @@
     <div class="pn">01</div>
   </header>
 
-  <div class="grid" style="grid-template-rows:auto auto auto 1fr;gap:12px">
+  <div class="grid" style="grid-template-rows:auto auto auto auto;align-content:start;gap:10px">
     <div>
       <div class="eyebrow">Keiji AI Japan · DIA Japan 2026 · Briefing</div>
       <h1><span class="ja">ADaM から報告書まで。<br><b>解析ワークフローをエージェントが実行し、人が確定する。</b></span>
@@ -143,19 +143,19 @@
         <div class="row"><img src="logos/pfizer.svg" alt="Pfizer" style="height:24px"><img src="logos/astrazeneca.svg" alt="AstraZeneca" style="height:20px"><img src="logos/takeda.svg" alt="Takeda" style="height:22px"><span class="word">Garden Health</span></div></div>
     </div>
 
-    <div class="grid g-5-7" style="gap:26px">
+    <div class="grid g-5-7" style="gap:26px;min-height:auto">
       <div>
         <h2><span class="n">1.</span><span class="ja">チームと共同開発パートナー</span><span class="en">Team and co-development partners</span></h2>
         <table style="table-layout:fixed"><colgroup><col style="width:92px"><col></colgroup>
-          <tr><td class="k"><span class="ja">創業チーム</span><span class="en">Founding team</span></td><td><span class="ja">UIUC、大阪大学、京都大学の出身。AI 研究者と臨床データ解析の実務者が同じチームにいる。</span><span class="en">From UIUC, Osaka University and Kyoto University. AI researchers and clinical data-analysis practitioners in one team.</span></td></tr>
-          <tr><td class="k"><span class="ja">専門領域</span><span class="en">Disciplines</span></td><td><span class="ja">機械学習と LLM エージェント、臨床薬理とファーマコメトリクス、生物統計、ソフトウェア工学とセキュリティ。</span><span class="en">Machine learning and LLM agents; clinical pharmacology and pharmacometrics; biostatistics; software engineering and security.</span></td></tr>
-          <tr><td class="k"><span class="ja">拠点</span><span class="en">Locations</span></td><td><span class="ja">米国本社と Keiji AI Japan。日本拠点は日本の製薬企業との共同開発と導入支援を担い、日本語で対応する。</span><span class="en">US headquarters and Keiji AI Japan. The Japan office handles co-development and deployment support for Japanese pharma, in Japanese.</span></td></tr>
+          <tr><td class="k"><span class="ja">創業チーム</span><span class="en">Founders</span></td><td><span class="ja">UIUC、大阪大学、京都大学の出身。AI 研究者と臨床データ解析の実務者が同じチームにいる。</span><span class="en">UIUC, Osaka University, Kyoto University. AI researchers and clinical analysts in one team.</span></td></tr>
+          <tr><td class="k"><span class="ja">専門領域</span><span class="en">Disciplines</span></td><td><span class="ja">機械学習と LLM エージェント、臨床薬理とファーマコメトリクス、生物統計、ソフトウェア工学とセキュリティ。</span><span class="en">ML and LLM agents; clinical pharmacology and pharmacometrics; biostatistics; software and security.</span></td></tr>
+          <tr><td class="k"><span class="ja">拠点</span><span class="en">Locations</span></td><td><span class="ja">米国本社と Keiji AI Japan。日本拠点は日本の製薬企業との共同開発と導入支援を担い、日本語で対応する。</span><span class="en">US headquarters and Keiji AI Japan, which co-develops with and supports Japanese pharma, in Japanese.</span></td></tr>
         </table>
         <div class="kt" style="margin-top:12px">
           <div class="lab"><span class="ti"><span class="ja">要点</span><span class="en">Key takeaways</span></span><span class="meta">KEY TAKEAWAYS</span></div>
           <div class="ktb" style="padding:8px 12px"><div class="h"><span class="n">01</span><b class="ja">LLM を呼ぶだけではない。提案はエージェント、確定は解析者</b><b class="en">Not an LLM wrapper. It proposes, you confirm</b></div>
-            <ul><li><span class="ja">数値はすべて <b>R</b> が計算。エージェントは結果を生成しない。<b>同じ入力は同じ出力</b></span><span class="en">All numbers computed in <b>R</b>; nothing generated. <b>Same input, same output</b></span></li>
-                <li><span class="ja">曝露指標、モデル、エンドポイントの選択に<b>根拠と確信度</b>を付けて提案。結果は探索的と明示</span><span class="en">Proposals carry <b>basis and confidence</b>; results stay exploratory</span></li></ul></div>
+            <ul><li><span class="ja">数値はすべて <b>R</b> が計算。エージェントは結果を生成しない。<b>同じ入力は同じ出力</b></span><span class="en">All numbers computed in <b>R</b>. <b>Same input, same output</b></span></li>
+                <li><span class="ja">曝露指標、モデル、エンドポイントの選択に<b>根拠と確信度</b>を付けて提案。結果は探索的と明示</span><span class="en">Proposals carry <b>basis and confidence</b></span></li></ul></div>
         </div>
       </div>
       <div>
@@ -176,7 +176,7 @@
           <div><h4><span class="ja">出力</span><span class="en">Output</span></h4>
             <ul><li><span class="ja">データサマリー、QC 所見台帳（証拠・影響・選択肢付き）</span><span class="en">Data summary; QC findings ledger with evidence, impact and options</span></li>
                 <li><span class="ja">PK/PD 図、曝露指標、ER 統計モデル（ロジスティック、Cox、NCA）</span><span class="en">PK/PD figures, exposure metrics, ER statistical models (logistic, Cox, NCA)</span></li>
-                <li><span class="ja">レビュー用報告書（Word / PDF）と、全判断の監査証跡</span><span class="en">Reviewer-facing report (Word / PDF) and an audit trail of every decision</span></li></ul></div>
+                <li><span class="ja">レビュー用報告書（Word / PDF）と、全判断の監査証跡</span><span class="en">Reviewer-facing report (Word / PDF) and audit trail</span></li></ul></div>
         </div>
         <div class="cores">
           <div><b>01</b><span class="ja">データ把握と品質確認</span><span class="en">Data characterisation and QC</span></div>
@@ -191,7 +191,7 @@
 
   </div>
 
-  <footer class="foot"><span><span class="ja">出典：Keiji AI、模擬データ Mock01 に対する記録済み実行（2026 年 10 月 8 日）。数値例はすべて模擬データに基づく。</span><span class="en">Source: Keiji AI recorded run on the Mock01 mock dataset, 8 October 2026. All worked examples use mock data.</span></span><span class="pg">KEIJI AI　01 / 02</span></footer>
+  <footer class="foot"><span>Keiji AI Japan</span><span class="pg">KEIJI AI　01 / 02</span></footer>
 </section>
 
 <!-- ================= PAGE 2 ================= -->
